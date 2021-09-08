@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+
+mainClassName = 'phoneNumberValidator.PhoneNumberValidator'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation     'junit:junit:4.13'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.31'
+}
