@@ -12,5 +12,8 @@ Da ich bereits Erfahrung mit **git** und [**GitHub**](github.com) gemacht habe, 
 
 Die Aufgabe mit der Badge habe ich nicht verstanden...
 
- ## Aufgabe 3
+## Aufgabe 3
+Diese Aufgabe habe ich anders als vorgesehen gelöst, weil das internationale Telefonsystem relativ unübersichtlich ist.
+Letztendlich habe ich einfach die Google Bibliothek libphonenumber benutzt.
+
  
