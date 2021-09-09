@@ -23,8 +23,8 @@ jobs:
         distribution: 'adopt'
         cache: gradle
     - name: Grant execute permission for gradlew
-      working-directory: /../../PhoneNumberValidator
+      working-directory: ../../PhoneNumberValidator/  
       run: chmod +x gradlew
     - name: Build with Gradle
-      working-directory: /../../PhoneNumberValidator
+      working-directory: ../../PhoneNumberValidator/
       run: ./gradlew build
