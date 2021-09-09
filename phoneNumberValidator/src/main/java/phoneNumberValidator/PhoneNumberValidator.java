@@ -61,13 +61,11 @@ public class PhoneNumberValidator {
                     System.out.println("Die Eingabe entspricht nicht den Mindestanforderungen einer Telefonnummer!");
                     break;
                 case TOO_SHORT_NSN:
+                case TOO_SHORT_AFTER_IDD:
                     System.out.println("Zu kurz!");
                     break;
                 case TOO_LONG:
                     System.out.println("Zu lang!");
-                    break;
-                case TOO_SHORT_AFTER_IDD:
-                    System.out.println("Zu kurz!");
                     break;
                 default:
                     System.out.println("Die Nummer konnte nicht verarbeitet werden und kann daher als ungültig betrachtet werden.");

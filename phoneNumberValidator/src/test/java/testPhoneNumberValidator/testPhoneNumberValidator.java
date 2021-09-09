@@ -1,7 +1,7 @@
 package testPhoneNumberValidator;
 
 import phoneNumberValidator.PhoneNumberValidator;
-import org.junit.*;
+import org.junit.Test;
 import static org.junit.Assert.*;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
