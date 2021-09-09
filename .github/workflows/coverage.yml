@@ -13,10 +13,10 @@ jobs:
 
     steps:   
       - name: Run Tests
-        run: ./gradlew test
+        run: ./phoneNumberValidator/gradlew test
 
       - name: Run Test Coverage
-        run: ./gradlew jacocoTestReport
+        run: ./phoneNumberValidator/gradlew jacocoTestReport
 
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2
