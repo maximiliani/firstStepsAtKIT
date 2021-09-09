@@ -3,6 +3,7 @@ package phoneNumberValidator;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import com.google.i18n.phonenumbers.NumberParseException;
+
 import java.util.Scanner;
 
 /**
@@ -19,10 +20,18 @@ public class PhoneNumberValidator {
         Scanner input = new Scanner(System.in);
         System.out.println("Dieses Programm validiert internationale Telefonnummern");
         System.out.println("Bitte nutzen Sie eine internationale Schreibweise und '+' oder '00' als VAZ.");
+
         System.out.println("Bitte geben Sie ihr Land an (z.B. DE, CH, AT,...):");
-        String country = input.nextLine();
+        String country;
+        if(args[0].isEmpty()) country = input.nextLine();
+        else country = args[0];
+
         System.out.println("Bitte geben Sie nun ihre Telefonnummer ein:");
-        if(validInput(input.nextLine(), country)) System.out.println("Gültige Nummer!");
+        String number;
+        if(args[0].isEmpty()) number = input.nextLine();
+        else number = args[1];
+
+        if (validInput(number, country)) System.out.println("Gültige Nummer!");
         else System.out.println("Ungültige Nummer!");
     }
     
@@ -31,24 +40,14 @@ public class PhoneNumberValidator {
             Phonenumber.PhoneNumber number = util.parseAndKeepRawInput(inputNumber, inputCountry);
             PhoneNumberUtil.ValidationResult possibleResult = util.isPossibleNumberWithReason(number);
             switch (possibleResult) {
-                case INVALID_COUNTRY_CODE:
-                    System.out.println("Ungültiger Ländercode");
-                    break;
-                case INVALID_LENGTH:
-                    System.out.println("Ungültige Länge");
-                    break;
                 case IS_POSSIBLE:
                     System.out.println("Diese Nummer ist möglich.");
                     break;
                 case IS_POSSIBLE_LOCAL_ONLY:
                     System.out.println("Diese Nummer ist nur innerhalb einer bestimmten Region möglich und erfüllt nicht alle Kriterien einer internationalen Rufnummer.");
                     break;
-                case TOO_LONG:
-                    System.out.println("Zu lang!");
-                    break;
-                case TOO_SHORT:
-                    System.out.println("Zu kurz!");
-                    break;
+                default:
+                    System.out.println(possibleResult);
             }
             return util.isValidNumber(number);
         } catch (NumberParseException e) {
@@ -66,10 +65,6 @@ public class PhoneNumberValidator {
                     break;
                 case TOO_LONG:
                     System.out.println("Zu lang!");
-                    break;
-                default:
-                    System.out.println("Die Nummer konnte nicht verarbeitet werden und kann daher als ungültig betrachtet werden.");
-                    System.out.println(e);
                     break;
             }
         }

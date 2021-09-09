@@ -14,6 +14,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
@@ -23,6 +25,11 @@
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/phoneNumberValidator.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/phoneNumberValidator.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/phoneNumberValidator" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/phoneNumberValidator" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/phoneNumberValidator.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/phoneNumberValidator.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/phoneNumberValidator/PhoneNumberValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/phoneNumberValidator/PhoneNumberValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testPhoneNumberValidator/testPhoneNumberValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testPhoneNumberValidator/testPhoneNumberValidator.java" afterDir="false" />
     </list>
@@ -92,6 +99,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -101,7 +109,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Gradle.phoneNumberValidator [dependencies]">
+  <component name="RunManager" selected="Gradle.testPhoneNumberValidator">
     <configuration name="PhoneNumberValidator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="phoneNumberValidator.PhoneNumberValidator" />
       <module name="phoneNumberValidator.main" />
@@ -186,10 +194,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.testPhoneNumberValidator" />
         <item itemvalue="Application.PhoneNumberValidator" />
         <item itemvalue="Gradle.phoneNumberValidator [test]" />
         <item itemvalue="Gradle.phoneNumberValidator [dependencies]" />
-        <item itemvalue="Gradle.testPhoneNumberValidator" />
       </list>
     </recent_temporary>
   </component>

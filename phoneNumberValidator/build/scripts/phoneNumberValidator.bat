@@ -67,7 +67,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\phoneNumberValidator.jar;%APP_HOME%\lib\libphonenumber-8.12.31.jar
+set CLASSPATH=%APP_HOME%\lib\phoneNumberValidator.jar;%APP_HOME%\lib\junit-jupiter-params-5.7.0.jar;%APP_HOME%\lib\junit-jupiter-engine-5.7.0.jar;%APP_HOME%\lib\junit-jupiter-api-5.7.0.jar;%APP_HOME%\lib\junit-platform-engine-1.7.0.jar;%APP_HOME%\lib\junit-platform-commons-1.7.0.jar;%APP_HOME%\lib\junit-jupiter-5.7.0.jar;%APP_HOME%\lib\libphonenumber-8.12.31.jar;%APP_HOME%\lib\apiguardian-api-1.1.0.jar;%APP_HOME%\lib\opentest4j-1.2.0.jar
 
 
 @rem Execute phoneNumberValidator

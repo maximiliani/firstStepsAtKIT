@@ -1,27 +1,61 @@
 package testPhoneNumberValidator;
 
-import phoneNumberValidator.PhoneNumberValidator;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeNoException;
+
+import phoneNumberValidator.PhoneNumberValidator;
+
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import com.google.i18n.phonenumbers.NumberParseException;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class testPhoneNumberValidator {
 
-    private PhoneNumberValidator validator = new PhoneNumberValidator();
-    private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
+    private final PhoneNumberValidator validator = new PhoneNumberValidator();
+    private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();private final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUp() {
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
+
+    @Test
+    public void validMain(){
+        String[] args = {"DE","+49721608"};
+        try{
+            PhoneNumberValidator.main(args);
+        } catch (Exception e) {
+            assumeNoException(e);
+        }
+    }
+
+    @Test
+    public void invalidMain() {
+        String[] args = {"DE","+497216"};
+        try{
+            PhoneNumberValidator.main(args);
+        } catch (Exception e) {
+            assumeNoException(e);
+        }
+    }
 
     @Test
     public void farTooShort(){
-        assertFalse(validator.validInput("1","DE"));
+        assertFalse(PhoneNumberValidator.validInput("1","DE"));
     }
 
     @Test
     public void possibleButNotValid(){
         try{
             Phonenumber.PhoneNumber number = util.parseAndKeepRawInput("+497216", "DE");
-            assertNotEquals(validator.validInput("+497216","DE"), util.isPossibleNumber(number));
+            assertNotEquals(PhoneNumberValidator.validInput("+497216","DE"), util.isPossibleNumber(number));
         } catch (NumberParseException e) {
             fail(e.toString());
         }
@@ -29,36 +63,41 @@ public class testPhoneNumberValidator {
 
     @Test
     public void valid(){
-        assertTrue(validator.validInput("+497216083333","DE"));
+        assertTrue(PhoneNumberValidator.validInput("+497216081234","DE"));
     }
 
     @Test
     public void validWith00(){
-        assertTrue(validator.validInput("00497216083333","DE"));
+        assertTrue(PhoneNumberValidator.validInput("00497216081234","DE"));
     }
 
     @Test
     public void tooLong(){
-        assertFalse(validator.validInput("+49721608333333333333333","DE"));
+        assertFalse(PhoneNumberValidator.validInput("+49721608333333333333333","DE"));
     }
 
     @Test
     public void invalid(){
-        assertFalse(validator.validInput("++3245222342","DE"));
+        assertFalse(PhoneNumberValidator.validInput("++3245222342","DE"));
     }
 
     @Test
     public void invalidCountryCode(){
-        assertFalse(validator.validInput("+9991234123","DE"));
+        assertFalse(PhoneNumberValidator.validInput("+9991234123","DE"));
     }
 
     @Test
     public void tooShort(){
-        assertFalse(validator.validInput("+491","DE"));
+        assertFalse(PhoneNumberValidator.validInput("+491","DE"));
     }
 
     @Test
     public void notANumber(){
-        assertFalse(validator.validInput("hello","DE"));
+        assertFalse(PhoneNumberValidator.validInput("hello","DE"));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(standardOut);
     }
 }
