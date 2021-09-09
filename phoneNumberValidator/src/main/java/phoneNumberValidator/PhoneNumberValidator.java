@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package phoneNumberValidator;
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -44,11 +39,9 @@ public class PhoneNumberValidator {
                     break;
                 case IS_POSSIBLE:
                     System.out.println("Diese Nummer ist möglich.");
-//                    return true;
                     break;
                 case IS_POSSIBLE_LOCAL_ONLY:
                     System.out.println("Diese Nummer ist nur innerhalb einer bestimmten Region möglich und erfüllt nicht alle Kriterien einer internationalen Rufnummer.");
-//                    return true;
                     break;
                 case TOO_LONG:
                     System.out.println("Zu lang!");
