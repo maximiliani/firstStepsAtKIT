@@ -22,9 +22,12 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: gradle
+    - name: Show folder content
+      working-directory: ../../phoneNumberValidator/  
+      run: ls
     - name: Grant execute permission for gradlew
-      working-directory: ../../PhoneNumberValidator/  
+      working-directory: ../../phoneNumberValidator/  
       run: chmod +x gradlew
     - name: Build with Gradle
-      working-directory: ../../PhoneNumberValidator/
+      working-directory: ../../phoneNumberValidator/
       run: ./gradlew build
