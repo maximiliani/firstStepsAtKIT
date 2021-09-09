@@ -11,10 +11,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    steps:   
+    steps:
+      - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         working-directory: ./phoneNumberValidator/  
         run: chmod +x gradlew
+        
       - name: Run Tests
         working-directory: ./phoneNumberValidator/  
         run: ./gradlew test
