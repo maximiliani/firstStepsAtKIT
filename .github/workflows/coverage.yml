@@ -1,2 +1,11 @@
-- name: jacoco-badge-generator
-  uses: cicirello/jacoco-badge-generator@v2.4.1
+     - name: Run Tests
+        run: ./phoneNumberValidator/gradlew test
+
+      - name: Run Test Coverage
+        run: ./phoneNumberValidator/gradlew jacocoTestReport
+
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: ./phoneNumberValidator/build/reports/jacoco/test/jacocoTestReport.csv 
