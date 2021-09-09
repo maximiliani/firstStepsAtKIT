@@ -13,12 +13,15 @@ jobs:
 
     steps:   
       - name: Run Tests
-        run: ./phoneNumberValidator/gradlew test
+        working-directory: ./phoneNumberValidator/  
+        run: ./gradlew test
 
       - name: Run Test Coverage
-        run: ./phoneNumberValidator/gradlew jacocoTestReport
+        working-directory: ./phoneNumberValidator/  
+        run: ./gradlew jacocoTestReport
 
       - name: Generate JaCoCo Badge
+        working-directory: ./phoneNumberValidator/
         uses: cicirello/jacoco-badge-generator@v2
         with:
           jacoco-csv-file: target/site/jacoco/jacoco.csv
