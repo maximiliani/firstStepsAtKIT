@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f68f894-c26a-432d-b946-bab947240adf" name="Changes" comment="Finished PhoneNumberValidator with libPhoneNumbers from Google">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/nb-cache/phoneNumberValidator-1558366190/project-info.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/nb-cache/phoneNumberValidator-1558366190/project-info.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/nb-cache/subprojects.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/nb-cache/subprojects.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/phoneNumberValidator/PhoneNumberValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/phoneNumberValidator.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/phoneNumberValidator.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/phoneNumberValidator.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/phoneNumberValidator" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/phoneNumberValidator" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/phoneNumberValidator.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/phoneNumberValidator.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/phoneNumberValidator/PhoneNumberValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/phoneNumberValidator/PhoneNumberValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testPhoneNumberValidator/testPhoneNumberValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testPhoneNumberValidator/testPhoneNumberValidator.java" afterDir="false" />
-    </list>
+    <list default="true" id="5f68f894-c26a-432d-b946-bab947240adf" name="Changes" comment="Finished PhoneNumberValidator with libPhoneNumbers from Google" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,5 +198,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="../../../../Code/firstStepsAtKIT/phoneNumberValidator/build/jacoco/test.exec" NAME="test.exec" MODIFIED="1631185187070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
