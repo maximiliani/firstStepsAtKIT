@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testRegexNumberValidator" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-09-16T12:13:30" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.04">
+  <properties/>
+  <testcase name="validMobile()" classname="testRegexNumberValidator" time="0.023"/>
+  <testcase name="testInvalidMain()" classname="testRegexNumberValidator" time="0.002"/>
+  <testcase name="valid031()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="valid110()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="valid112()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="valid115()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="testMain()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="tooLong()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="tooShort()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="invalidNationalCode()" classname="testRegexNumberValidator" time="0.0"/>
+  <testcase name="invalidShortNumber()" classname="testRegexNumberValidator" time="0.0"/>
+  <testcase name="valid()" classname="testRegexNumberValidator" time="0.0"/>
+  <testcase name="notANumber()" classname="testRegexNumberValidator" time="0.0"/>
+  <testcase name="invalid()" classname="testRegexNumberValidator" time="0.0"/>
+  <system-out><![CDATA[Telefonnummer: 015253909714
+Vorwahl: 015253
+Teilnehmer: 909714
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
+Ungültige Nummer!
+Telefonnummer: 0310
+Vorwahl: 0310
+Teilnehmer: null
+Telefonnummer: 110
+Vorwahl: 110
+Teilnehmer: null
+Telefonnummer: 112
+Vorwahl: 112
+Teilnehmer: null
+Telefonnummer: 115
+Vorwahl: 115
+Teilnehmer: null
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
+Telefonnummer: 112
+Vorwahl: 112
+Teilnehmer: null
+Gültige Nummer!
+Telefonnummer: 07216088910121
+Vorwahl: 072160
+Teilnehmer: 88910121
+Telefonnummer: 072160
+Vorwahl: 072160
+Teilnehmer: null
+Telefonnummer: 02504130
+Vorwahl: 02504
+Teilnehmer: 130
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
