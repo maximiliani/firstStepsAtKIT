@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f68f894-c26a-432d-b946-bab947240adf" name="Changes" comment="Finished PhoneNumberValidator with libPhoneNumbers from Google">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="5f68f894-c26a-432d-b946-bab947240adf" name="Changes" comment="Finished PhoneNumberValidator with libPhoneNumbers from Google" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +22,9 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/../regexNumberValidator">
           <activation />
         </task>
         <projects_view>
@@ -207,6 +208,14 @@
       <option name="presentableId" value="Default" />
       <updated>1631093877554</updated>
     </task>
+    <task id="LOCAL-00001" summary="Finished RegexNumberValidator">
+      <created>1631794593591</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631794593591</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +232,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Finished RegexNumberValidator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished RegexNumberValidator" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="../../../../Code/firstStepsAtKIT/phoneNumberValidator/build/jacoco/test.exec" NAME="test.exec" MODIFIED="1631185187070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
