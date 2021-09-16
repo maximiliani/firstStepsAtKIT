@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testPhoneNumberValidator.testPhoneNumberValidator" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-10T06:42:51" hostname="fv-az41-619" time="0.081">
+<testsuite name="testPhoneNumberValidator.testPhoneNumberValidator" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-16T13:53:41" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.043">
   <properties/>
-  <testcase name="validWith00()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.039"/>
-  <testcase name="farTooShort()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.002"/>
-  <testcase name="tooLong()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.003"/>
-  <testcase name="validMain()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.004"/>
-  <testcase name="tooShort()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.003"/>
-  <testcase name="invalidMain()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.002"/>
-  <testcase name="valid()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.002"/>
-  <testcase name="notANumber()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
-  <testcase name="possibleButNotValid()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.003"/>
-  <testcase name="invalid()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.006"/>
+  <testcase name="validWith00()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.026"/>
+  <testcase name="farTooShort()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
+  <testcase name="tooLong()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.002"/>
+  <testcase name="validMain()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.003"/>
+  <testcase name="tooShort()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
+  <testcase name="invalidMain()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
+  <testcase name="valid()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
+  <testcase name="notANumber()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.0"/>
+  <testcase name="possibleButNotValid()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
+  <testcase name="invalid()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.002"/>
   <testcase name="invalidCountryCode()" classname="testPhoneNumberValidator.testPhoneNumberValidator" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

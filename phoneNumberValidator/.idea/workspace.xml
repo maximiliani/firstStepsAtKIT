@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f68f894-c26a-432d-b946-bab947240adf" name="Changes" comment="Finished PhoneNumberValidator with libPhoneNumbers from Google" />
+    <list default="true" id="307868de-e57c-4e0e-b920-162c0144a81a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regexNumberValidator/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../regexNumberValidator/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regexNumberValidator/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../regexNumberValidator/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regexNumberValidator/src/main/java/regexNumberValidator/RegexNumberValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regexNumberValidator/src/main/java/regexNumberValidator/RegexNumberValidator.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +91,12 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Gradle.phoneNumberValidator [jacocoTestReport]">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../regexNumberValidator" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.testRegexNumberValidator">
     <configuration name="PhoneNumberValidator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="phoneNumberValidator.PhoneNumberValidator" />
       <module name="phoneNumberValidator.main" />
@@ -97,27 +109,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="phoneNumberValidator [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="phoneNumberValidator [jacocoTestReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -140,10 +131,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="phoneNumberValidator [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="regexNumberValidator [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../regexNumberValidator" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -182,27 +173,48 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="testRegexNumberValidator" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../regexNumberValidator" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;testRegexNumberValidator&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.PhoneNumberValidator" />
       <item itemvalue="Gradle.testPhoneNumberValidator" />
-      <item itemvalue="Gradle.phoneNumberValidator [dependencies]" />
-      <item itemvalue="Gradle.phoneNumberValidator [test]" />
       <item itemvalue="Gradle.phoneNumberValidator [jacocoTestReport]" />
+      <item itemvalue="Gradle.regexNumberValidator [test]" />
+      <item itemvalue="Gradle.testRegexNumberValidator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.testRegexNumberValidator" />
+        <item itemvalue="Gradle.regexNumberValidator [test]" />
         <item itemvalue="Gradle.phoneNumberValidator [jacocoTestReport]" />
         <item itemvalue="Gradle.testPhoneNumberValidator" />
         <item itemvalue="Application.PhoneNumberValidator" />
-        <item itemvalue="Gradle.phoneNumberValidator [test]" />
-        <item itemvalue="Gradle.phoneNumberValidator [dependencies]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5f68f894-c26a-432d-b946-bab947240adf" name="Changes" comment="" />
+      <changelist id="307868de-e57c-4e0e-b920-162c0144a81a" name="Changes" comment="" />
       <created>1631093877554</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
