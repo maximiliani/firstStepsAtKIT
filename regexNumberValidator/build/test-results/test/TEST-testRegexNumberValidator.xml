@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testsuite name="testRegexNumberValidator" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-09-16T12:38:24" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.042">
+  <properties/>
+  <testcase name="validMobile()" classname="testRegexNumberValidator" time="0.023"/>
+  <testcase name="testInvalidMain()" classname="testRegexNumberValidator" time="0.001"/>
+=======
 <testsuite name="testRegexNumberValidator" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-09-16T12:13:30" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.04">
   <properties/>
   <testcase name="validMobile()" classname="testRegexNumberValidator" time="0.023"/>
   <testcase name="testInvalidMain()" classname="testRegexNumberValidator" time="0.002"/>
+>>>>>>> cac50a103e23cc631ad24dfc4a672fb5a4bcafa1
   <testcase name="valid031()" classname="testRegexNumberValidator" time="0.001"/>
   <testcase name="valid110()" classname="testRegexNumberValidator" time="0.001"/>
   <testcase name="valid112()" classname="testRegexNumberValidator" time="0.001"/>
   <testcase name="valid115()" classname="testRegexNumberValidator" time="0.001"/>
   <testcase name="testMain()" classname="testRegexNumberValidator" time="0.001"/>
+<<<<<<< HEAD
+  <testcase name="tooLong()" classname="testRegexNumberValidator" time="0.002"/>
+  <testcase name="tooShort()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="invalidNationalCode()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="invalidShortNumber()" classname="testRegexNumberValidator" time="0.001"/>
+  <testcase name="valid()" classname="testRegexNumberValidator" time="0.001"/>
+=======
   <testcase name="tooLong()" classname="testRegexNumberValidator" time="0.001"/>
   <testcase name="tooShort()" classname="testRegexNumberValidator" time="0.001"/>
   <testcase name="invalidNationalCode()" classname="testRegexNumberValidator" time="0.0"/>
   <testcase name="invalidShortNumber()" classname="testRegexNumberValidator" time="0.0"/>
   <testcase name="valid()" classname="testRegexNumberValidator" time="0.0"/>
+>>>>>>> cac50a103e23cc631ad24dfc4a672fb5a4bcafa1
   <testcase name="notANumber()" classname="testRegexNumberValidator" time="0.0"/>
   <testcase name="invalid()" classname="testRegexNumberValidator" time="0.0"/>
   <system-out><![CDATA[Telefonnummer: 015253909714
