@@ -12,6 +12,18 @@ public class RegexNumberValidator {
         // If no argument is given you may return with an error exit code and an usage output.
         // If multiple arguments are given you may validate one after another or return an error and usage
         String number = args[0];
+        // Gültig <-> Ungültig looks quite similar. In case of an error it should be obvious.
+        // If a method should return true most times it might be easier to throw
+        // an exception instead of if - else. If number is invalid all further 
+        // steps are not necessary. 
+        // try {
+        // ....
+        // validateNumber
+        // ... further steps if number is valid
+        // catch (...) {
+        // errorhandlich 
+        // return errorcode
+        //}
         if (validInput(number)) System.out.println("Gültige Nummer!");
         else System.out.println("Ungültige Nummer!");
     }
