@@ -1,9 +1,9 @@
 import org.junit.jupiter.api.Test;
-import regexNumberValidator.RegexNumberValidator;
+import regex_number_validator.RegexNumberValidator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class testRegexNumberValidator {
+public class TestRegexNumberValidator {
 
     @Test
     public void valid(){ assertTrue(RegexNumberValidator.validInput("02504130"));}
