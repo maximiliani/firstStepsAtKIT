@@ -47,6 +47,10 @@ public class RegexNumberValidator {
    */
   public static boolean validInput(String inputNumber) {
 //        String regex = "^(010[1-9][0-9]|0100[0-9][0-9]|110|112|115|116[01][0-9][0-9]|118[1-9][0-9]|11800[1-9]|0137[1-9]|015[0-9]{2,3}|016[23489]|017[0-9]|018|019[1-4]|02[0-9]{1,3}|031[01]|03[02-9][0-9]{1,3}|04[0-9]{1,4}|050[3-9][0-9]{1,2}|05[1-9][0-9]{1,3}|06[0-9]{1,4}|070[02-9][0-9]{1,2}|07[1-9][0-9]{1,3}|080[02-9][0-9]{1,2}|08[1-9][0-9]{1,3}|0900[1359]|09[1-9][0-9]{1,3})([1-9][0-9]{2,7})?";
+    // great! But what the fuck you are doing here? ;-)
+    // Maybe add a link to an external site which explains the meaning of this pattern
+    // or explain it yourself in detail. 
+    // In case of an error or an extension it might be easier to fix this pattern.
     String regex = "^(010[1-9]\\d|0100\\d\\d|110|112|115|116[01]\\d\\d|118[1-9]\\d|11800[1-9]|0137[1-9]|015\\d{2,3}|016[23489]|017\\d|018|019[1-4]|02\\d{1,3}|031[01]|03[02-9]\\d{1,3}|04\\d{1,4}|050[3-9]\\d{1,2}|05[1-9]\\d{1,3}|06\\d{1,4}|070[02-9]\\d{1,2}|07[1-9]\\d{1,3}|080[02-9]\\d{1,2}|08[1-9]\\d{1,3}|0900[1359]|09[1-9]\\d{1,3})([1-9]\\d{2,7})?";
     Pattern pattern = Pattern.compile(regex);
     Matcher matcher = pattern.matcher(inputNumber);
