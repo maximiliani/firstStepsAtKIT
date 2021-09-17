@@ -8,6 +8,9 @@ public class RegexNumberValidator {
     public static void main(String[] args) {
         System.out.println("Dieses Programm validiert deutsche Telefonnummern");
         System.out.println("Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.");
+        // Check if any argument is given.
+        // If no argument is given you may return with an error exit code and an usage output.
+        // If multiple arguments are given you may validate one after another or return an error and usage
         String number = args[0];
         if (validInput(number)) System.out.println("Gültige Nummer!");
         else System.out.println("Ungültige Nummer!");
