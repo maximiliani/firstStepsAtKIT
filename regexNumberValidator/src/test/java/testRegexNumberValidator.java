@@ -28,12 +28,17 @@ public class testRegexNumberValidator {
 
     @Test
     public void invalid(){ assertFalse(RegexNumberValidator.validInput(""));}
+    @Test
+    public void invalid2(){ assertFalse(RegexNumberValidator.validInput(null));}
 
     @Test
     public void invalidNationalCode(){ assertFalse(RegexNumberValidator.validInput("01234567890"));}
 
     @Test
     public void invalidShortNumber(){ assertFalse(RegexNumberValidator.validInput("111"));}
+
+    @Test
+    public void invalidShortNumber2(){ assertFalse(RegexNumberValidator.validInput("1101"));}
 
     @Test
     public void tooShort(){ assertFalse(RegexNumberValidator.validInput("0721608"));}
@@ -51,6 +56,22 @@ public class testRegexNumberValidator {
     }
     @Test void testInvalidMain(){
         String[] args = {"111"};
+        try{
+            RegexNumberValidator.main(args);
+        } catch (Exception e) {
+            fail(e);
+        }
+    }
+    @Test void testInvalidMain2(){
+        String[] args = null;
+        try{
+            RegexNumberValidator.main(args);
+        } catch (Exception e) {
+            fail(e);
+        }
+    }
+    @Test void testInvalidMain3(){
+        String[] args = {"110", "11", "000345678", "+49 150 123 456"};
         try{
             RegexNumberValidator.main(args);
         } catch (Exception e) {
