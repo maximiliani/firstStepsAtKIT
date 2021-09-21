@@ -1,3 +1,5 @@
+package regex_number_validator;
+
 import org.junit.jupiter.api.Test;
 import regex_number_validator.RegexNumberValidator;
 
@@ -24,27 +26,27 @@ public class TestRegexNumberValidator {
     public void validMobile(){ assertTrue(RegexNumberValidator.validInput("015253909714"));}
 
     @Test
-    public void tooLong(){ assertFalse(RegexNumberValidator.validInput("072160889101214"));}
+    public void tooLong(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("072160889101214");});}
 
     @Test
-    public void invalid(){ assertFalse(RegexNumberValidator.validInput(""));}
+    public void invalid(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("");});}
     @Test
-    public void invalid2(){ assertFalse(RegexNumberValidator.validInput(null));}
+    public void invalid2(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput(null);});}
 
     @Test
-    public void invalidNationalCode(){ assertFalse(RegexNumberValidator.validInput("01234567890"));}
+    public void invalidNationalCode(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("01234567890");});}
 
     @Test
-    public void invalidShortNumber(){ assertFalse(RegexNumberValidator.validInput("111"));}
+    public void invalidShortNumber(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("111");});}
 
     @Test
-    public void invalidShortNumber2(){ assertFalse(RegexNumberValidator.validInput("1101"));}
+    public void invalidShortNumber2(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("1101");});}
 
     @Test
-    public void tooShort(){ assertFalse(RegexNumberValidator.validInput("0721608"));}
+    public void tooShort(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("0721608");});}
 
     @Test
-    public void notANumber(){ assertFalse(RegexNumberValidator.validInput("hello"));}
+    public void notANumber(){ assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.validInput("hello");});}
 
     @Test void testMain(){
         String[] args = {"112"};
@@ -56,26 +58,14 @@ public class TestRegexNumberValidator {
     }
     @Test void testInvalidMain(){
         String[] args = {"111"};
-        try{
-            RegexNumberValidator.main(args);
-        } catch (Exception e) {
-            fail(e);
-        }
+        assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.main(args);});
     }
     @Test void testInvalidMain2(){
         String[] args = null;
-        try{
-            RegexNumberValidator.main(args);
-        } catch (Exception e) {
-            fail(e);
-        }
+        assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.main(args);});
     }
     @Test void testInvalidMain3(){
         String[] args = {"110", "11", "000345678", "+49 150 123 456"};
-        try{
-            RegexNumberValidator.main(args);
-        } catch (Exception e) {
-            fail(e);
-        }
+        assertThrows(IllegalArgumentException.class, () -> { RegexNumberValidator.main(args);});
     }
 }
