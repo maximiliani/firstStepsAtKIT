@@ -11,8 +11,11 @@ repositories {
     mavenCentral()
 }
 
+mainClassName = "regexNumberValidator.RegexNumberValidator"
+
 dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     testCompileOnly 'junit:junit:4.13.2'
@@ -26,6 +29,7 @@ test {
 jacocoTestReport {
     dependsOn test
     reports {
-        csv.required = true
+        csv.enabled = true
+        xml.enabled = true
     }
 }
