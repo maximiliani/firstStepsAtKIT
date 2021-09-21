@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'application'
+}
+
+group 'edu.kit.scc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = "mailAddressValidator.mailAddressValidator"
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    implementation 'org.jetbrains:annotations:20.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    testCompileOnly 'junit:junit:4.13.2'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        csv.enabled = true
+        xml.enabled = true
+    }
+}

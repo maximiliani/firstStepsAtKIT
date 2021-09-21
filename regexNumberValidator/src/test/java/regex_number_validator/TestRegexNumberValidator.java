@@ -1,7 +1,6 @@
 package regex_number_validator;
 
 import org.junit.jupiter.api.Test;
-import regex_number_validator.RegexNumberValidator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
