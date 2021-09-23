@@ -24,7 +24,7 @@ public class TestPhoneNumberValidator {
 
     @Test
     public void invalidMain() {
-        String[] args = {"+497216","DE"};
+        String[] args = {"123","DE"};
         try{
             validator.processIsValid(args);
         } catch (Exception e) {
@@ -80,5 +80,15 @@ public class TestPhoneNumberValidator {
     @Test
     public void notANumber(){
         assertThrows(IllegalArgumentException.class, () -> {validator.isValidInput(new String[]{"hello","DE"});});
+    }
+
+    @Test
+    public void noInputInProcess(){
+        assertThrows(IllegalArgumentException.class, () -> {validator.processIsValid(new String[]{});});
+    }
+
+    @Test
+    public void noInputInValidate(){
+        assertThrows(IllegalArgumentException.class, () -> {validator.isValidInput(new String[]{});});
     }
 }
