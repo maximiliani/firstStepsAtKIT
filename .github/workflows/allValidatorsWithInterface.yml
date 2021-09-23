@@ -63,3 +63,5 @@ jobs:
       run: ./gradlew jacocoTestReport
     - name: Codecov
       uses: codecov/codecov-action@v2.1.0
+      with:
+        files: ./allValidatorsWithInterface/build/reports/jacoco/test/jacocoTestReport.xml
