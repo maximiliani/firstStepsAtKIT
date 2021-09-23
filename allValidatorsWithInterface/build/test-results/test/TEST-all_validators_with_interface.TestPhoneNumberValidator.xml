@@ -1,17 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="all_validators_with_interface.TestPhoneNumberValidator" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-23T09:12:07" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.025">
+<testsuite name="all_validators_with_interface.TestPhoneNumberValidator" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-09-23T09:20:12" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.027">
   <properties/>
-  <testcase name="invalidProcess()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.025"/>
-  <system-out><![CDATA[This program validates international phone numbers.
+  <testcase name="noInputInValidate()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="validWith00()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.01"/>
+  <testcase name="farTooShort()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="validProcess()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="tooLong()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="tooShort()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="invalidProcess()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="valid()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="noInputInProcess()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="onlyPossibleInSomeRegions()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="notANumber()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="possibleButNotValid()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="invalid()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.0"/>
+  <testcase name="invalidCountryCode()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <system-out><![CDATA[ERROR: Invalid input! 
+
+This number is possible.
+ERROR:    The input does not meet the minimum requirements of a phone number!
+This program validates international phone numbers.
 Please use only an international notation and '+' or '00' as traffic elimination digit.
 
-ERROR
-The input does not meet the minimum requirements of a phone number!
+This number is possible.
+The number is valid!
+ERROR:    This number is too long!
+ERROR:    This number is too short!
+This program validates international phone numbers.
+Please use only an international notation and '+' or '00' as traffic elimination digit.
+
+ERROR: Invalid input! 
+
 ERROR:   The number is invalid!
 
+This number is possible.
+This program validates international phone numbers.
+Please use only an international notation and '+' or '00' as traffic elimination digit.
+
+ERROR: Invalid input! 
+
+This program validates international phone numbers.
+Please use only an international notation and '+' or '00' as traffic elimination digit.
+
+This number is only possible within a certain region and does not meet all the criteria of an international number.
+The number is valid!
+ERROR:    The input does not meet the minimum requirements of a phone number!
+This number is possible.
+ERROR:    Invalid country code
+ERROR:    Invalid country code
 ]]></system-out>
   <system-err><![CDATA[java.lang.IllegalArgumentException
-	at all_validators_with_interface.PhoneNumberValidator.isValidInput(PhoneNumberValidator.java:91)
+	at all_validators_with_interface.PhoneNumberValidator.isValidInput(PhoneNumberValidator.java:56)
 	at all_validators_with_interface.PhoneNumberValidator.processIsValid(PhoneNumberValidator.java:33)
 	at all_validators_with_interface.TestPhoneNumberValidator.lambda$invalidProcess$8(TestPhoneNumberValidator.java:97)
 	at org.junit.Assert.assertThrows(Assert.java:1001)

@@ -1,206 +1,84 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - TestPhoneNumberValidator</title>
-<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
-<link href="../css/style.css" rel="stylesheet" type="text/css"/>
-<script src="../js/report.js" type="text/javascript"></script>
-</head>
-<body>
-<div id="content">
-<h1>TestPhoneNumberValidator</h1>
-<div class="breadcrumbs">
-<a href="../index.html">all</a> &gt; 
-<a href="../packages/all_validators_with_interface.html">all_validators_with_interface</a> &gt; TestPhoneNumberValidator</div>
-<div id="summary">
-<table>
-<tr>
-<td>
-<div class="summaryGroup">
-<table>
-<tr>
-<td>
-<div class="infoBox" id="tests">
-<div class="counter">14</div>
-<p>tests</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="failures">
-<div class="counter">0</div>
-<p>failures</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="ignored">
-<div class="counter">0</div>
-<p>ignored</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="duration">
-<div class="counter">0.016s</div>
-<p>duration</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</td>
-<td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
-<p>successful</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div id="tabs">
-<ul class="tabLinks">
-<li>
-<a href="#tab0">Tests</a>
-</li>
-<li>
-<a href="#tab1">Standard output</a>
-</li>
-<li>
-<a href="#tab2">Standard error</a>
-</li>
-</ul>
-<div id="tab0" class="tab">
-<h2>Tests</h2>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Duration</th>
-<th>Result</th>
-</tr>
-</thead>
-<tr>
-<td class="success">farTooShort()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">invalid()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">invalidCountryCode()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">invalidProcess()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">noInputInProcess()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">noInputInValidate()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">notANumber()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">onlyPossibleInSomeRegions()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">possibleButNotValid()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">tooLong()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">tooShort()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">valid()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validProcess()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validWith00()</td>
-<td class="success">0.010s</td>
-<td class="success">passed</td>
-</tr>
-</table>
-</div>
-<div id="tab1" class="tab">
-<h2>Standard output</h2>
-<span class="code">
-<pre>ERROR: Invalid input! 
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="all_validators_with_interface.TestRegexNumberValidator" tests="18" skipped="0" failures="0" errors="0" timestamp="2021-09-23T09:20:12" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.025">
+  <properties/>
+  <testcase name="validMobile()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.004"/>
+  <testcase name="testInvalidMain()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.003"/>
+  <testcase name="valid031()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.0"/>
+  <testcase name="valid110()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.0"/>
+  <testcase name="valid112()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="valid115()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="testMain()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="tooLong()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="tooShort()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.0"/>
+  <testcase name="invalidNationalCode()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="invalidShortNumber()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="valid()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.0"/>
+  <testcase name="invalidShortNumber2()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="invalid2()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="notANumber()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.0"/>
+  <testcase name="testInvalidMain2()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="testInvalidMain3()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <testcase name="invalid()" classname="all_validators_with_interface.TestRegexNumberValidator" time="0.001"/>
+  <system-out><![CDATA[Erkannte Telefonnummer: 015253909714
+Vorwahl: 015253
+Teilnehmer: 909714
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
 
-This number is possible.
-ERROR:    The input does not meet the minimum requirements of a phone number!
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
+FEHLER:   Die Nummer ist ungültig!
 
-This number is possible.
-The number is valid!
-ERROR:    This number is too long!
-ERROR:    This number is too short!
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
+Erkannte Telefonnummer: 0310
+Vorwahl: 0310
+Teilnehmer: null
+Erkannte Telefonnummer: 110
+Vorwahl: 110
+Teilnehmer: null
+Erkannte Telefonnummer: 112
+Vorwahl: 112
+Teilnehmer: null
+Erkannte Telefonnummer: 115
+Vorwahl: 115
+Teilnehmer: null
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
+
+Erkannte Telefonnummer: 112
+Vorwahl: 112
+Teilnehmer: null
+Die Nummer ist gültig!
+Erkannte Telefonnummer: 07216088910121
+Vorwahl: 072160
+Teilnehmer: 88910121
+Erkannte Telefonnummer: 072160
+Vorwahl: 072160
+Teilnehmer: null
+Erkannte Telefonnummer: 02504130
+Vorwahl: 02504
+Teilnehmer: 130
+Erkannte Telefonnummer: 110
+Vorwahl: 110
+Teilnehmer: null
+ERROR: Invalid input! 
+
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
 
 ERROR: Invalid input! 
 
-ERROR:   The number is invalid!
-
-This number is possible.
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
 
 ERROR: Invalid input! 
 
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
-
-This number is only possible within a certain region and does not meet all the criteria of an international number.
-The number is valid!
-ERROR:    The input does not meet the minimum requirements of a phone number!
-This number is possible.
-ERROR:    Invalid country code
-ERROR:    Invalid country code
-</pre>
-</span>
-</div>
-<div id="tab2" class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>java.lang.IllegalArgumentException
-	at all_validators_with_interface.PhoneNumberValidator.isValidInput(PhoneNumberValidator.java:56)
-	at all_validators_with_interface.PhoneNumberValidator.processIsValid(PhoneNumberValidator.java:33)
-	at all_validators_with_interface.TestPhoneNumberValidator.lambda$invalidProcess$8(TestPhoneNumberValidator.java:97)
-	at org.junit.Assert.assertThrows(Assert.java:1001)
-	at org.junit.Assert.assertThrows(Assert.java:981)
-	at all_validators_with_interface.TestPhoneNumberValidator.invalidProcess(TestPhoneNumberValidator.java:97)
+]]></system-out>
+  <system-err><![CDATA[java.lang.IllegalArgumentException
+	at all_validators_with_interface.RegexNumberValidator.isValidInput(RegexNumberValidator.java:78)
+	at all_validators_with_interface.RegexNumberValidator.processIsValid(RegexNumberValidator.java:30)
+	at all_validators_with_interface.TestRegexNumberValidator.lambda$testInvalidMain$8(TestRegexNumberValidator.java:62)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3007)
+	at all_validators_with_interface.TestRegexNumberValidator.testInvalidMain(TestRegexNumberValidator.java:62)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -291,19 +169,5 @@ ERROR:    Invalid country code
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-</pre>
-</span>
-</div>
-</div>
-<div id="footer">
-<p>
-<div>
-<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
-<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
-</label>
-</div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.0</a> at 23.09.2021, 11:20:12</p>
-</div>
-</div>
-</body>
-</html>
+]]></system-err>
+</testsuite>

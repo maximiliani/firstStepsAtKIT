@@ -94,6 +94,6 @@ public class TestPhoneNumberValidator {
 
     @Test
     public void invalidProcess(){
-        assertThrows(IllegalArgumentException.class, () -> {validator.processIsValid(new String[]{"0a1", "DE"});});
+        assertThrows(IllegalArgumentException.class, () -> {validator.processIsValid(new String[]{"", null});});
     }
 }

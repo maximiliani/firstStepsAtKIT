@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - TestPhoneNumberValidator</title>
+<title>Test results - TestRegexNumberValidator</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>TestPhoneNumberValidator</h1>
+<h1>TestRegexNumberValidator</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/all_validators_with_interface.html">all_validators_with_interface</a> &gt; TestPhoneNumberValidator</div>
+<a href="../packages/all_validators_with_interface.html">all_validators_with_interface</a> &gt; TestRegexNumberValidator</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">14</div>
+<div class="counter">18</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.016s</div>
+<div class="counter">0.018s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,32 +81,27 @@
 </tr>
 </thead>
 <tr>
-<td class="success">farTooShort()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
 <td class="success">invalid()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">invalidCountryCode()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">invalidProcess()</td>
+<td class="success">invalid2()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">noInputInProcess()</td>
-<td class="success">0s</td>
+<td class="success">invalidNationalCode()</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">noInputInValidate()</td>
+<td class="success">invalidShortNumber()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">invalidShortNumber2()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
@@ -116,13 +111,23 @@
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">onlyPossibleInSomeRegions()</td>
-<td class="success">0s</td>
+<td class="success">testInvalidMain()</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">possibleButNotValid()</td>
-<td class="success">0s</td>
+<td class="success">testInvalidMain2()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testInvalidMain3()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMain()</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -141,13 +146,28 @@
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validProcess()</td>
+<td class="success">valid031()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">valid110()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">valid112()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validWith00()</td>
-<td class="success">0.010s</td>
+<td class="success">valid115()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">validMobile()</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -155,39 +175,57 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>ERROR: Invalid input! 
+<pre>Erkannte Telefonnummer: 015253909714
+Vorwahl: 015253
+Teilnehmer: 909714
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
 
-This number is possible.
-ERROR:    The input does not meet the minimum requirements of a phone number!
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
+FEHLER:   Die Nummer ist ungültig!
 
-This number is possible.
-The number is valid!
-ERROR:    This number is too long!
-ERROR:    This number is too short!
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
+Erkannte Telefonnummer: 0310
+Vorwahl: 0310
+Teilnehmer: null
+Erkannte Telefonnummer: 110
+Vorwahl: 110
+Teilnehmer: null
+Erkannte Telefonnummer: 112
+Vorwahl: 112
+Teilnehmer: null
+Erkannte Telefonnummer: 115
+Vorwahl: 115
+Teilnehmer: null
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
+
+Erkannte Telefonnummer: 112
+Vorwahl: 112
+Teilnehmer: null
+Die Nummer ist gültig!
+Erkannte Telefonnummer: 07216088910121
+Vorwahl: 072160
+Teilnehmer: 88910121
+Erkannte Telefonnummer: 072160
+Vorwahl: 072160
+Teilnehmer: null
+Erkannte Telefonnummer: 02504130
+Vorwahl: 02504
+Teilnehmer: 130
+Erkannte Telefonnummer: 110
+Vorwahl: 110
+Teilnehmer: null
+ERROR: Invalid input! 
+
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
 
 ERROR: Invalid input! 
 
-ERROR:   The number is invalid!
-
-This number is possible.
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
+Dieses Programm validiert deutsche Telefonnummern
+Bitte nutzen Sie ausschließlich die deutsche nationale Schreibweise und benutzen Sie keine Sonder-/Leerzeichen.
 
 ERROR: Invalid input! 
 
-This program validates international phone numbers.
-Please use only an international notation and '+' or '00' as traffic elimination digit.
-
-This number is only possible within a certain region and does not meet all the criteria of an international number.
-The number is valid!
-ERROR:    The input does not meet the minimum requirements of a phone number!
-This number is possible.
-ERROR:    Invalid country code
-ERROR:    Invalid country code
 </pre>
 </span>
 </div>
@@ -195,12 +233,13 @@ ERROR:    Invalid country code
 <h2>Standard error</h2>
 <span class="code">
 <pre>java.lang.IllegalArgumentException
-	at all_validators_with_interface.PhoneNumberValidator.isValidInput(PhoneNumberValidator.java:56)
-	at all_validators_with_interface.PhoneNumberValidator.processIsValid(PhoneNumberValidator.java:33)
-	at all_validators_with_interface.TestPhoneNumberValidator.lambda$invalidProcess$8(TestPhoneNumberValidator.java:97)
-	at org.junit.Assert.assertThrows(Assert.java:1001)
-	at org.junit.Assert.assertThrows(Assert.java:981)
-	at all_validators_with_interface.TestPhoneNumberValidator.invalidProcess(TestPhoneNumberValidator.java:97)
+	at all_validators_with_interface.RegexNumberValidator.isValidInput(RegexNumberValidator.java:78)
+	at all_validators_with_interface.RegexNumberValidator.processIsValid(RegexNumberValidator.java:30)
+	at all_validators_with_interface.TestRegexNumberValidator.lambda$testInvalidMain$8(TestRegexNumberValidator.java:62)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3007)
+	at all_validators_with_interface.TestRegexNumberValidator.testInvalidMain(TestRegexNumberValidator.java:62)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
