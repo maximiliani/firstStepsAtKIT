@@ -37,8 +37,10 @@ jobs:
         distribution: 'adopt'
         cache: gradle
     - name: Grant execute permission for gradlew
+      working-directory: ./allValidatorsWithInterface/
       run: chmod +x gradlew
     - name: Build with Gradle (JDK ${{ env.currentJDK }})
+      working-directory: ./allValidatorsWithInterface/
       run: ./gradlew test
     - name: Run Test Coverage
       working-directory: ./allValidatorsWithInterface/
