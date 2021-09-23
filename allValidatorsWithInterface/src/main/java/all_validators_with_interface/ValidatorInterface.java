@@ -5,7 +5,7 @@ package all_validators_with_interface;
  * @author maximilianiKIT
  */
 public interface ValidatorInterface {
-    public void processIsValid(String[] input) throws Exception;
+    void processIsValid(String[] input) throws Exception;
 
-    public boolean isValidInput(String[] input) throws Exception;
+    boolean isValidInput(String[] input) throws Exception;
 }

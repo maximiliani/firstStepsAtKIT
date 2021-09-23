@@ -67,10 +67,11 @@ public class PhoneNumberValidator implements ValidatorInterface{
                     break;
                 default:
                     System.out.println(possibleResult);
+                    break;
             }
             return util.isValidNumber(number);
         } catch (NumberParseException e) {
-            System.out.println("ERRPR");
+            System.out.println("ERROR");
             switch (e.getErrorType()) {
                 case INVALID_COUNTRY_CODE:
                     System.out.println("Invalid country code");
