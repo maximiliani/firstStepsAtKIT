@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="all_validators_with_interface.TestPhoneNumberValidator" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-23T08:43:23" hostname="dyn-dhcp-141-52-74-192.scc.kit.edu" time="0.023">
+  <properties/>
+  <testcase name="validWith00()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.011"/>
+  <testcase name="farTooShort()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="tooLong()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="validMain()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="tooShort()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="invalidMain()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="valid()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="notANumber()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="possibleButNotValid()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="invalid()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <testcase name="invalidCountryCode()" classname="all_validators_with_interface.TestPhoneNumberValidator" time="0.001"/>
+  <system-out><![CDATA[This number is possible.
+ERROR
+The input does not meet the minimum requirements of a phone number!
+ERROR
+This number is too long!
+This program validates international phone numbers.
+Please use only an international notation and '+' or '00' as traffic elimination digit.
+
+This number is possible.
+The number is valid!
+ERROR
+This number is too short!
+This program validates international phone numbers.
+Please use only an international notation and '+' or '00' as traffic elimination digit.
+
+This number is possible.
+The number is valid!
+This number is possible.
+ERROR
+The input does not meet the minimum requirements of a phone number!
+This number is possible.
+ERROR
+Invalid country code
+ERROR
+Invalid country code
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
