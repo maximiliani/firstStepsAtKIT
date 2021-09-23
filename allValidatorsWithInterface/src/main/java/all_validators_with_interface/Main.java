@@ -1,6 +1,6 @@
 package all_validators_with_interface;
 
-import java.util.Scanner;    
+import java.util.Scanner;
 /**
  * This class manages the communication between the user and the validator classes.
  * @author maximilianiKIT
