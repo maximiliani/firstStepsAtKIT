@@ -13,7 +13,7 @@ public class TestPhoneNumberValidator {
     private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
 
     @Test
-    public void validMain(){
+    public void validProcess(){
         String[] args = {"+4972160828033","DE"};
         try{
             validator.processIsValid(args);
@@ -23,7 +23,7 @@ public class TestPhoneNumberValidator {
     }
 
     @Test
-    public void invalidMain() {
+    public void onlyPossibleInSomeRegions() {
         String[] args = {"123","DE"};
         try{
             validator.processIsValid(args);
@@ -90,5 +90,10 @@ public class TestPhoneNumberValidator {
     @Test
     public void noInputInValidate(){
         assertThrows(IllegalArgumentException.class, () -> {validator.isValidInput(new String[]{});});
+    }
+
+    @Test
+    public void invalidProcess(){
+        assertThrows(IllegalArgumentException.class, () -> {validator.processIsValid(new String[]{"0a1", "DE"});});
     }
 }
