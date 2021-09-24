@@ -13,6 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+          // Maybe a commandline parser would help: see https://stackoverflow.com/questions/367706/how-do-i-parse-command-line-arguments-in-java
+          // You may take a look at jCommander.
             if (args == null || args.length < 1 || args.length > 3 || args[0] == null ) {
                 Scanner input = new Scanner(System.in);
                 System.out.println("Hello, there were no/invalid arguments given. Which validator do you want to use?");
