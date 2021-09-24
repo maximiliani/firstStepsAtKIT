@@ -18,14 +18,20 @@ public class MailAddressValidator implements ValidatorInterface{
      * @param input e-mail address to validate
      */
     @Override
-    public void processIsValid(String[] input) throws IllegalArgumentException, UnknownHostException {
+    public void processIsValid(String[] input) throws ValidatorException {
+      // CAUTION: IllegalArgumentException is a runtime Exception which will
+      // not necessarily catched by the calling class.
         System.out.println("This program validates only e-mail addresses without comments and static IP-addresses.");
         System.out.println();
 
         if ( input == null || input.length!=1 || input[0] == null) {
-            System.out.println("ERROR: Invalid input! ");
-            System.out.println();
-            throw new IllegalArgumentException();
+          // Don't handle errors here. If the library is used inside a server this is 
+          // not useful! ;-)
+          // Errorhandling should be done outside. Throw an exception with an explaining message.
+//            System.out.println("ERROR: Invalid input! ");
+//            System.out.println();
+            String message = String.format("'%s' is not a valid input!", input);
+            throw new ValidatorException(message);
         }
         else{
             try{
