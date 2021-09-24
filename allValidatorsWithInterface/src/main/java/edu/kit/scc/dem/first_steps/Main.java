@@ -1,5 +1,8 @@
-package edu.kit.scc.dem.first_steps.validators;
+package edu.kit.scc.dem.first_steps;
 
+import edu.kit.scc.dem.first_steps.validators.MailAddressValidator;
+import edu.kit.scc.dem.first_steps.validators.PhoneNumberValidator;
+import edu.kit.scc.dem.first_steps.validators.RegexNumberValidator;
 import java.util.Scanner;
 /**
  * This class manages the communication between the user and the validator classes.
