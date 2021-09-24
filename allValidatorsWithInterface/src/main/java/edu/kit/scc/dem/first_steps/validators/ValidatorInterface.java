@@ -10,7 +10,5 @@ public interface ValidatorInterface {
      * @param input
      * @throws Exception 
      */
-    void processIsValid(String[] input) throws Exception;
-
-    boolean isValidInput(String[] input) throws Exception;
+    boolean isValid(String[] input) throws Exception;
 }
