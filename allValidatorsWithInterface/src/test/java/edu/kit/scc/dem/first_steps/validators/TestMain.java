@@ -60,4 +60,6 @@ public class TestMain {
         String[] args = {"-m", "test@123.123"};
         assertThrows( IllegalArgumentException.class, () -> {Main.main(args);});
     }
+    
+    // missing tests
 }
