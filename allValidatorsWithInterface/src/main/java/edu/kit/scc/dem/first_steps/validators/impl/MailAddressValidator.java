@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
  */
 public class MailAddressValidator implements ValidatorInterface{
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MailAddressValidator.class);
+
     /**
      * This method calls the validInput method and prints information to the console.
      *
