@@ -10,5 +10,16 @@ public interface ValidatorInterface {
      * @param input
      * @throws Exception 
      */
-    boolean isValid(String[] input) throws Exception;
+    boolean isValid(String[] input) throws ValidationException;
+    String getInputMessage();
+    void askForInputAndValidate() throws ValidationException {
+      String inputMessage = getInputMessage();
+      System.out.println(inputMessage);
+      // Read input
+      //some code here
+       isValid(input);
+    }
+      
+      
+    };
 }
