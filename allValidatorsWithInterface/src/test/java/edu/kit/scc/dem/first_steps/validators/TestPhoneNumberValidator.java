@@ -1,5 +1,6 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.impl.PhoneNumberValidator;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;

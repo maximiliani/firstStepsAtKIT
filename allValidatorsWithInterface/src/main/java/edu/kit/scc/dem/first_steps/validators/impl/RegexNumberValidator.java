@@ -1,5 +1,6 @@
-package edu.kit.scc.dem.first_steps.validators;
+package edu.kit.scc.dem.first_steps.validators.impl;
 
+import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

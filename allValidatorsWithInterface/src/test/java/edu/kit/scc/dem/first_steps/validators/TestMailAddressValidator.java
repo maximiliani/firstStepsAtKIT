@@ -1,5 +1,6 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.impl.MailAddressValidator;
 import org.junit.jupiter.api.Test;
 import java.net.UnknownHostException;
 import static org.junit.jupiter.api.Assertions.*;

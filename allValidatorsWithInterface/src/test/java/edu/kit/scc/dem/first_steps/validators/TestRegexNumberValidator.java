@@ -1,5 +1,6 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.impl.RegexNumberValidator;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;

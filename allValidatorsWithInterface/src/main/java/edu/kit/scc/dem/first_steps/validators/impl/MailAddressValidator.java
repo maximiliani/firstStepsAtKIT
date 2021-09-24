@@ -1,5 +1,6 @@
-package edu.kit.scc.dem.first_steps.validators;
+package edu.kit.scc.dem.first_steps.validators.impl;
 
+import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.regex.Matcher;
