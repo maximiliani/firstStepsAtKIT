@@ -66,6 +66,7 @@ public class Main {
             System.out.println("Invalid type!");
             throw new IllegalArgumentException();
         }
+        // In case of multiple inputs do it in a loop.
         do {
           validator.askForInputAndValidate();
         } while (ask for more input );
