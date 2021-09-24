@@ -1,4 +1,4 @@
-package all_validators_with_interface;
+package edu.kit.scc.dem.first_steps.validators;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

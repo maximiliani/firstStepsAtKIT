@@ -1,4 +1,4 @@
-package all_validators_with_interface;
+package edu.kit.scc.dem.first_steps.validators;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertTrue;
