@@ -17,14 +17,24 @@ public class PhoneNumberValidator implements ValidatorInterface {
     private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
     private final String countryCode;
 
+    /**
+     * This constructor gets the country code by parameter.
+     *
+     * @param countryCode is the country code from which view the library is used.
+     */
     public PhoneNumberValidator(String countryCode) {
         this.countryCode = countryCode;
     }
 
+    /**
+     * This constructor reads the users input for the country code.
+     *
+     * @throws ValidationException if no input was given.
+     */
     public PhoneNumberValidator() throws ValidationException {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter a countrycode (e.g. DE, NL, ...): ");
-        try{
+        try {
             this.countryCode = input.nextLine();
         } catch (Exception e) {
             throw new ValidationException("No country code provided!", new ValidationException());

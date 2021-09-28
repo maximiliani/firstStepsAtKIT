@@ -9,43 +9,60 @@ public class TestMailAddressValidator {
     MailAddressValidator mailAddressValidator = new MailAddressValidator();
 
     @Test
-    public void valid(){
-        try{
+    public void valid() {
+        try {
             assertTrue(mailAddressValidator.isValid("maximilian.inckmann@kit.edu"));
-        } catch (Exception e){
+        } catch (Exception e) {
             fail(e);
         }
     }
 
     @Test
-    public void validWithSubdomain(){
-        try{
+    public void validWithSubdomain() {
+        try {
             assertTrue(mailAddressValidator.isValid("test@scc.kit.edu"));
-        } catch (Exception e){
+        } catch (Exception e) {
             fail(e);
         }
     }
 
     @Test
-    public void tooLong(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test.test.test.test@fhgakhjsdfgkajhdgfkajhgdfkjahgdfkjahgdfkjahgdfkjahgdfkjahdsgfkjahdgfkjahgdsfkjhagsdfkjahsgdfjhagdsfjhgasdjhkfgasdhjgfajsdgfjasgdfjasgdfjagsdfjhgadsfjhgadsjfkhgash.example.jalsjkfhaldjkhfalkjdhflakjdshflkjahdflkjhadlkjfhaljdshflajshdflkahdsflkjhdaljfhasljdkfhlaksjdhfkjalsdhfljkh.de"));}
+    public void tooLong() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test.test.test.test@fhgakhjsdfgkajhdgfkajhgdfkjahgdfkjahgdfkjahgdfkjahgdfkjahdsgfkjahdgfkjahgdsfkjhagsdfkjahsgdfjhagdsfjhgasdjhkfgasdhjgfajsdgfjasgdfjasgdfjagsdfjhgadsfjhgadsjfkhgash.example.jalsjkfhaldjkhfalkjdhflakjdshflkjahdflkjhadlkjfhaljdshflajshdflkahdsflkjhdaljfhasljdkfhlaksjdhfkjalsdhfljkh.de"));
+    }
 
     @Test
-    public void invalid(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(""));}
-    @Test
-    public void invalid2(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(null));}
+    public void invalid() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(""));
+    }
 
     @Test
-    public void invalidDot(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(".maximilian@test.example"));}
+    public void invalid2() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(null));
+    }
 
     @Test
-    public void invalidNumbericTLD(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test@test.123"));}
+    public void invalidDot() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(".maximilian@test.example"));
+    }
 
     @Test
-    public void invalidHyphens(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test@test.-test-"));}
+    public void invalidNumbericTLD() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test@test.123"));
+    }
 
     @Test
-    public void tooShort(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("t@es.t"));}
+    public void invalidHyphens() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test@test.-test-"));
+    }
 
     @Test
-    public void notAnAddress(){ assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello"));}
+    public void tooShort() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("t@es.t"));
+    }
+
+    @Test
+    public void notAnAddress() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello"));
+    }
 }

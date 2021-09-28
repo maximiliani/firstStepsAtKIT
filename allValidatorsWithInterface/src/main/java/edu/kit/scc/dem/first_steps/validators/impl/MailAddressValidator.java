@@ -48,7 +48,8 @@ public class MailAddressValidator implements ValidatorInterface {
             System.out.println("Server domain without TLD: " + matcher.group(3));
             System.out.println("Second level domain (SLD): " + matcher.group(4));
             System.out.println("Top level domain (TLD): " + matcher.group(5));
-            if (input.length() == matcher.group(0).length() && matcher.group(0).length() < 255 && domainValidator.isValid(matcher.group(2))) return true;
+            if (input.length() == matcher.group(0).length() && matcher.group(0).length() < 255 && domainValidator.isValid(matcher.group(2)))
+                return true;
         }
         throw new ValidationException("Invalid mail address", new ValidationException());
     }

@@ -4,6 +4,11 @@ import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 
 import java.net.InetAddress;
 
+/**
+ * This class validates domain names by checking if an A or AAAA record is available.
+ *
+ * @author maximilianiKIT
+ */
 public class DomainValidator implements ValidatorInterface {
     /**
      * This method checks if A or AAAA records are available for the domain.

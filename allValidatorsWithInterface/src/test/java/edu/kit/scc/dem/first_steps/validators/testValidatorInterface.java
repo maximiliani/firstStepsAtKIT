@@ -14,12 +14,16 @@ class testValidatorInterface {
     }
 
     @Test
-    void ValidatorExceptionWithoutMessage(){
-        assertThrows(ValidatorInterface.ValidationException.class, () ->{throw new ValidatorInterface.ValidationException();});
+    void ValidatorExceptionWithoutMessage() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> {
+            throw new ValidatorInterface.ValidationException();
+        });
     }
 
     @Test
-    void ValidatorExceptionWithMessage(){
-        assertThrows(ValidatorInterface.ValidationException.class, () ->{throw new ValidatorInterface.ValidationException("test",new Exception());});
+    void ValidatorExceptionWithMessage() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> {
+            throw new ValidatorInterface.ValidationException("test", new Exception());
+        });
     }
 }

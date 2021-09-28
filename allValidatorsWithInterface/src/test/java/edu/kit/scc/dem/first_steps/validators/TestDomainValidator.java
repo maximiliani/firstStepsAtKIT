@@ -8,24 +8,30 @@ import java.net.UnknownHostException;
 import static org.junit.Assume.assumeNoException;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestDomainValidator{
+public class TestDomainValidator {
 
     private final DomainValidator validator = new DomainValidator();
 
     @Test
-    public void noRecord(){ assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid("test.test.test.kit.edu"));}
+    public void noRecord() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid("test.test.test.kit.edu"));
+    }
 
     @Test
-    public void noInput(){ assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(""));}
+    public void noInput() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(""));
+    }
 
     @Test
-    public void nullInput(){ assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(""));}
+    public void nullInput() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(""));
+    }
 
     @Test
-    public void recordAvailable(){
-        try{
+    public void recordAvailable() {
+        try {
             assertTrue(validator.isValid("kit.edu"));
-        } catch (Exception e){
+        } catch (Exception e) {
             assumeNoException(e);
         }
     }

@@ -20,6 +20,13 @@ public class Main {
 
     private static ValidatorInterface validator = null;
 
+    /**
+     * This is the main method.
+     * It reads the user input either form args or from console and validates them.
+     *
+     * @param args args to parse and validate
+     * @throws ValidatorInterface.ValidationException with error message inside
+     */
     public static void main(String[] args) throws ValidatorInterface.ValidationException {
         Options options = new Options();
         CommandLineParser parser = new DefaultParser();
@@ -75,7 +82,7 @@ public class Main {
             }
             try {
                 validator.askForInputAndValidate();
-                return ;
+                return;
             } catch (ValidatorInterface.ValidationException e) {
                 System.out.println(e.getMessage());
                 throw e;
