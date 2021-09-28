@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 
-mainClassName = "all_validators_with_interface.Main"
+mainClassName = "edu.kit.scc.dem.first_steps.Main"
 
 dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
@@ -20,6 +20,7 @@ dependencies {
     testCompileOnly 'junit:junit:4.13.2'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.7.2'
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.31'
+    implementation 'commons-cli:commons-cli:1.4'
 }
 
 test {

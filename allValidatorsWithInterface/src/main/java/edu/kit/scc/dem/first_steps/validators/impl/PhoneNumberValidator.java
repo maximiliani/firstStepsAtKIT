@@ -9,68 +9,45 @@ import java.util.Scanner;
 
 /**
  * This class validates international phone numbers by using a Google library.
+ *
  * @author maximilianiKIT
  */
-public class PhoneNumberValidator implements ValidatorInterface{
+public class PhoneNumberValidator implements ValidatorInterface {
 
     private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
-    private String countryCode;
+    private final String countryCode;
 
     public PhoneNumberValidator(String countryCode) {
         this.countryCode = countryCode;
     }
 
-    public PhoneNumberValidator() {
+    public PhoneNumberValidator() throws ValidationException {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter a countrycode (e.g. DE, NL, ...): ");
-        this.countryCode = input.nextLine();
+        try{
+            this.countryCode = input.nextLine();
+        } catch (Exception e) {
+            throw new ValidationException("No country code provided!", new ValidationException());
+        }
     }
-
-    //    /**
-//     * This method does some simple processing...
-//     * @param input [0] - number to validate in an international format
-//     *              [1] - country code from where to validate the number
-//     */
-//    @Override
-//    public void processIsValid(String[] input) throws IllegalArgumentException {
-//        System.out.println("This program validates international phone numbers.");
-//        System.out.println("Please use only an international notation and '+' or '00' as traffic elimination digit.");
-//        System.out.println();
-//
-//        if ( input == null || input.length!=2 || input[0] == null) {
-//            System.out.println("ERROR: Invalid input! ");
-//            System.out.println();
-//            throw new IllegalArgumentException();
-//        }
-//        else{
-//            try{
-//                isValid(input);
-//                System.out.println("The number is valid!");
-//            } catch (Exception e) {
-//                System.out.println("ERROR:   The number is invalid!");
-//                System.out.println();
-//                e.printStackTrace();
-//                throw e;
-//            }
-//        }
-//    }
 
     /**
      * This method validates international phone numbers by using a Google library.
+     *
      * @param input [0] - number to validate in an international format
      *              [1] - country code from where to validate the number
-     * @return  true if the number is valid and possible
+     * @return true if the number is valid and possible
      * @throws IllegalArgumentException if the number is not possible or/and not valid
      */
     @Override
     public boolean isValid(String input) throws ValidationException {
-        if (input == null || input.length != 2 || input[0] == null || input[1] == null) {
+        if (input == null || input.length() == 0) {
             System.out.println("ERROR: Invalid input! ");
             System.out.println();
-            throw new IllegalArgumentException();
+            throw new ValidationException("Invalid or no input!", new ValidationException());
         }
         try {
-            Phonenumber.PhoneNumber number = util.parseAndKeepRawInput(input[0], input[1]);
+            Phonenumber.PhoneNumber number = util.parseAndKeepRawInput(input, countryCode);
             PhoneNumberUtil.ValidationResult possibleResult = util.isPossibleNumberWithReason(number);
             switch (possibleResult) {
                 case IS_POSSIBLE:
@@ -78,9 +55,6 @@ public class PhoneNumberValidator implements ValidatorInterface{
                     break;
                 case IS_POSSIBLE_LOCAL_ONLY:
                     System.out.println("This number is only possible within a certain region and does not meet all the criteria of an international number.");
-                    break;
-                default:
-                    System.out.println(possibleResult);
                     break;
             }
             return util.isValidNumber(number);
@@ -101,7 +75,7 @@ public class PhoneNumberValidator implements ValidatorInterface{
                     System.out.println("This number is too long!");
                     break;
             }
+            throw new ValidationException("Invalid number!", e);
         }
-        throw new ValidationException();
     }
 }

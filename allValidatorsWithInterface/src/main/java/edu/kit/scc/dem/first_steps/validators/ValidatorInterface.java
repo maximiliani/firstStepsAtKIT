@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * This interface provides two methods which are necessary for validating things.
+ *
  * @author maximilianiKIT
  */
 public interface ValidatorInterface {
@@ -16,19 +17,14 @@ public interface ValidatorInterface {
         String inputMessage;
         try {
             inputMessage = userInput.nextLine();
-        } catch (IllegalArgumentException e){
+        } catch (Exception e) {
             throw new ValidationException("Invalid inputMessage", e);
         }
         System.out.println(inputMessage);
-        if(inputMessage.length() > 1){
-            try{
-                isValid(inputMessage);
-                System.out.println("Your input is valid!");
-            } catch (ValidationException e) {
-                throw e;
-            }
-        }
-        else throw new ValidationException();
+        if (inputMessage.length() > 1) {
+            isValid(inputMessage);
+            System.out.println("Your input is valid!");
+        } else throw new ValidationException();
     }
 
     class ValidationException extends Exception {
