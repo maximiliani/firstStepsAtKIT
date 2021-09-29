@@ -1,9 +1,8 @@
 package edu.kit.scc.dem.first_steps.validators.impl;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class MailAddressValidator implements ValidatorInterface {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MailAddressValidator.class);
+    final Logger log = LoggerFactory.getLogger(MailAddressValidator.class);
     private static final DomainValidator domainValidator = new DomainValidator();
 
     /**
@@ -27,9 +26,8 @@ public class MailAddressValidator implements ValidatorInterface {
     public boolean isValid(String input) throws ValidationException {
 
         if (input == null || input.length() == 0) {
-            System.out.println("ERROR: Invalid input! ");
-            System.out.println();
-            throw new ValidationException("Invalid input", new ValidationException());
+            log.error("No input!");
+            throw new ValidationException("No input", new ValidationException());
         }
 
         /*
@@ -42,15 +40,16 @@ public class MailAddressValidator implements ValidatorInterface {
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.find()) {
-            System.out.println("Recognized e-mail address: " + matcher.group(0));
-            System.out.println("Local part (often username/name): " + matcher.group(1));
-            System.out.println("Server domain: " + matcher.group(2));
-            System.out.println("Server domain without TLD: " + matcher.group(3));
-            System.out.println("Second level domain (SLD): " + matcher.group(4));
-            System.out.println("Top level domain (TLD): " + matcher.group(5));
+            log.info("Recognized e-mail address: {}", matcher.group(0));
+            log.info("Local part (often username/name): {}", matcher.group(1));
+            log.info("Server domain: {}", matcher.group(2));
+            log.debug("Server domain without TLD: {}", matcher.group(3));
+            log.debug("Second level domain (SLD): {}", matcher.group(4));
+            log.debug("Top level domain (TLD): {}", matcher.group(5));
             if (input.length() == matcher.group(0).length() && matcher.group(0).length() < 255 && domainValidator.isValid(matcher.group(2)))
                 return true;
         }
+        log.error("The mail address {} is invalid.", input);
         throw new ValidationException("Invalid mail address", new ValidationException());
     }
 }

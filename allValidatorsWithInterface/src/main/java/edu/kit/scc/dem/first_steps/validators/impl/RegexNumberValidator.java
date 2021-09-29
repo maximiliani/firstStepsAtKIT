@@ -1,6 +1,8 @@
 package edu.kit.scc.dem.first_steps.validators.impl;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,6 +14,8 @@ import java.util.regex.Pattern;
  */
 public class RegexNumberValidator implements ValidatorInterface {
 
+    final Logger log = LoggerFactory.getLogger(RegexNumberValidator.class);
+
     /**
      * This method validates German phone numbers and throws an IllegalArgumentException if the number isn't valid.
      *
@@ -22,8 +26,7 @@ public class RegexNumberValidator implements ValidatorInterface {
     public boolean isValid(String input) throws ValidationException {
 
         if (input == null || input.length() == 0) {
-            System.out.println("ERROR: Invalid input! ");
-            System.out.println();
+            log.error("No input!");
             throw new ValidationException("No input!", new ValidationException());
         }
 
@@ -39,10 +42,10 @@ public class RegexNumberValidator implements ValidatorInterface {
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.find()) {
-            System.out.println("Matched phone number: " + matcher.group(0));
-            System.out.println("Area code: " + matcher.group(1));
-            System.out.println("Participants number: " + matcher.group(2));
-            if (matcher.group(2) != null && matcher.group(0).length() > 2 && matcher.group(0).length() <= 13)
+            log.info("Matched phone number: " + matcher.group(0));
+            log.info("Area code: " + matcher.group(1));
+            log.info("Participants number: " + matcher.group(2));
+            if (matcher.group(2) != null && matcher.group(0).length() > 2 && matcher.group(0).length() <= 13 && matcher.group(0).equals(input))
                 return true;
             else if (matcher.group(0).equals("110") && input.equals("110")) return true;
             else if (matcher.group(0).equals("112") && input.equals("112")) return true;
@@ -50,6 +53,7 @@ public class RegexNumberValidator implements ValidatorInterface {
             else if (matcher.group(0).equals("0310") && input.equals("0310")) return true;
             else if (matcher.group(0).equals("0311") && input.equals("0311")) return true;
         }
+        log.error("The number {} is invalid!", input);
         throw new ValidationException("Invalid number!", new ValidationException());
     }
 

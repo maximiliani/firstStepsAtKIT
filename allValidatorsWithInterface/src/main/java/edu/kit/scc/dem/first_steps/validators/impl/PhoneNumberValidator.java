@@ -4,6 +4,8 @@ import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
@@ -14,6 +16,7 @@ import java.util.Scanner;
  */
 public class PhoneNumberValidator implements ValidatorInterface {
 
+    final Logger log = LoggerFactory.getLogger(PhoneNumberValidator.class);
     private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
     private final String countryCode;
 
@@ -23,6 +26,7 @@ public class PhoneNumberValidator implements ValidatorInterface {
      * @param countryCode is the country code from which view the library is used.
      */
     public PhoneNumberValidator(String countryCode) {
+        log.debug("Set country code to {}", countryCode);
         this.countryCode = countryCode;
     }
 
@@ -36,7 +40,9 @@ public class PhoneNumberValidator implements ValidatorInterface {
         System.out.println("Please enter a countrycode (e.g. DE, NL, ...): ");
         try {
             this.countryCode = input.nextLine();
+            log.debug("Set country code to {}", this.countryCode);
         } catch (Exception e) {
+            log.error("No country code provided.");
             throw new ValidationException("No country code provided!", new ValidationException());
         }
     }
@@ -52,8 +58,7 @@ public class PhoneNumberValidator implements ValidatorInterface {
     @Override
     public boolean isValid(String input) throws ValidationException {
         if (input == null || input.length() == 0) {
-            System.out.println("ERROR: Invalid input! ");
-            System.out.println();
+            log.error("Invalid input! ");
             throw new ValidationException("Invalid or no input!", new ValidationException());
         }
         try {
@@ -61,28 +66,28 @@ public class PhoneNumberValidator implements ValidatorInterface {
             PhoneNumberUtil.ValidationResult possibleResult = util.isPossibleNumberWithReason(number);
             switch (possibleResult) {
                 case IS_POSSIBLE:
+                    log.info("The number {} is possible.", input);
                     System.out.println("This number is possible.");
                     break;
                 case IS_POSSIBLE_LOCAL_ONLY:
-                    System.out.println("This number is only possible within a certain region and does not meet all the criteria of an international number.");
+                    log.warn("The number {} is only possible within a certain region and does not meet all the criteria of an international number.", input);
                     break;
             }
             return util.isValidNumber(number);
         } catch (NumberParseException e) {
-            System.out.print("ERROR:    ");
             switch (e.getErrorType()) {
                 case INVALID_COUNTRY_CODE:
-                    System.out.println("Invalid country code");
+                    log.error("Invalid country code: {}", countryCode);
                     break;
                 case NOT_A_NUMBER:
-                    System.out.println("The input does not meet the minimum requirements of a phone number!");
+                    log.error("The input {} does not meet the minimum requirements of a phone number!", input);
                     break;
                 case TOO_SHORT_NSN:
                 case TOO_SHORT_AFTER_IDD:
-                    System.out.println("This number is too short!");
+                    log.error("The number {} is too short!", input);
                     break;
                 case TOO_LONG:
-                    System.out.println("This number is too long!");
+                    log.error("The number {} is too long!", input);
                     break;
             }
             throw new ValidationException("Invalid number!", e);

@@ -5,6 +5,8 @@ import edu.kit.scc.dem.first_steps.validators.impl.DomainValidator;
 import edu.kit.scc.dem.first_steps.validators.impl.MailAddressValidator;
 import edu.kit.scc.dem.first_steps.validators.impl.PhoneNumberValidator;
 import edu.kit.scc.dem.first_steps.validators.impl.RegexNumberValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
@@ -18,6 +20,7 @@ import org.apache.commons.cli.*;
  */
 public class Main {
 
+    static final Logger log = LoggerFactory.getLogger(Main.class);
     private static ValidatorInterface validator = null;
 
     /**
@@ -44,6 +47,7 @@ public class Main {
         try {
             cmd = parser.parse(options, args);
         } catch (ParseException e) {
+            log.error("Failed parsing args - printing help");
             formatter.printHelp("Main.java", options);
             throw new ValidatorInterface.ValidationException("Not able to parse args.", e);
         }
@@ -57,57 +61,75 @@ public class Main {
             String type;
             try {
                 type = scannerInput.nextLine();
+                log.debug("User input recognized: {}", type);
             } catch (Exception e) {
                 System.out.println("No input given!");
+                log.error("No user input given!");
                 throw new ValidatorInterface.ValidationException("No input given!", e);
             }
             switch (type) {
                 case "regexValidator":
+                    log.debug("regexValidator input recognized - starting RegexNumberValidator");
                     validator = new RegexNumberValidator();
                     break;
                 case "googleValidator":
+                    log.debug("googleValidator input recognized - starting PhoneNumberValidator");
                     validator = new PhoneNumberValidator();
                     break;
                 case "mailValidator":
+                    log.debug("mailValidator input recognized - starting MailAddressValidator");
                     validator = new MailAddressValidator();
                     break;
                 case "domainValidator":
+                    log.debug("domainValidator input recognized - starting DomainValidator");
                     validator = new DomainValidator();
                     break;
                 default:
                     System.out.println("Invalid input! Please see this: ");
                     System.out.println();
                     formatter.printHelp("Main.java", options);
+                    log.error("Invalid user input given!");
                     throw new ValidatorInterface.ValidationException("Invalid input given!", new ValidatorInterface.ValidationException());
             }
             try {
                 validator.askForInputAndValidate();
+                log.debug("Finished validation process without errors!");
                 return;
             } catch (ValidatorInterface.ValidationException e) {
+                log.error("Failed validation because of: {}", e.getMessage());
                 System.out.println(e.getMessage());
                 throw e;
             }
         } else if (cmd.hasOption("m")) {
+            log.debug("m arg recognized - starting MailAddressValidator");
             validator = new MailAddressValidator();
         } else if (cmd.hasOption("r")) {
+            log.debug("r arg recognized - starting RegexNumberValidator");
             validator = new RegexNumberValidator();
         } else if (cmd.hasOption("d")) {
+            log.debug("d arg recognized - starting DomainValidator");
             validator = new DomainValidator();
         } else if (cmd.hasOption("g")) {
+            log.debug("g arg recognized - starting PhoneNumberValidator");
             if (cmd.hasOption("c")) {
+                log.debug("c arg recognized - using constructor with arg value");
                 validator = new PhoneNumberValidator(cmd.getOptionValue("c"));
             } else {
+                log.debug("c arg NOT recognized - using constructor without arg value");
                 validator = new PhoneNumberValidator();
             }
         } else if (cmd.hasOption("h")) {
+            log.debug("h arg recognized - printing help");
             formatter.printHelp("Main.java", options);
             return;
         }
 
         try {
             validator.isValid(cmd.getOptionValue("i"));
+            log.info("The input {} is valid", cmd.getOptionValue("i"));
             System.out.println("Valid input!");
         } catch (ValidatorInterface.ValidationException e) {
+            log.error("The input {} is invalid because of this reason: {}", input, e.getMessage());
             System.out.println("Invalid Input!");
             System.out.println("REASON: " + e.getMessage());
             throw e;

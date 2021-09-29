@@ -1,0 +1,12 @@
+edu/kit/scc/dem/first_steps/validators/TestMailAddressValidator.java
+ edu.kit.scc.dem.first_steps.validators.TestMailAddressValidator
+edu/kit/scc/dem/first_steps/validators/TestDomainValidator.java
+ edu.kit.scc.dem.first_steps.validators.TestDomainValidator
+edu/kit/scc/dem/first_steps/validators/testValidatorInterface.java
+ edu.kit.scc.dem.first_steps.validators.testValidatorInterface
+edu/kit/scc/dem/first_steps/validators/TestMain.java
+ edu.kit.scc.dem.first_steps.validators.TestMain
+edu/kit/scc/dem/first_steps/validators/TestRegexNumberValidator.java
+ edu.kit.scc.dem.first_steps.validators.TestRegexNumberValidator
+edu/kit/scc/dem/first_steps/validators/TestPhoneNumberValidator.java
+ edu.kit.scc.dem.first_steps.validators.TestPhoneNumberValidator
