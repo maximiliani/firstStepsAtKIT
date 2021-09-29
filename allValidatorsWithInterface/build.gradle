@@ -21,7 +21,8 @@ dependencies {
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.0'
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.32'
     implementation 'commons-cli:commons-cli:1.4'
-    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    implementation "ch.qos.logback:logback-classic:1.2.5"
 }
 
 test {
