@@ -14,6 +14,7 @@ import java.util.Scanner;
 public interface ValidatorInterface {
 
     Logger log = LoggerFactory.getLogger(ValidatorInterface.class);
+
     /**
      * This method is implemented in every class that implements this interface.
      * It validates the given input and returns either a boolean or a ValidationException.

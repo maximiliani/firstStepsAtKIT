@@ -3,6 +3,7 @@ package edu.kit.scc.dem.first_steps.validators.impl;
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

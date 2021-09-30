@@ -24,7 +24,7 @@ public class DomainValidator implements ValidatorInterface {
      */
     @Override
     public boolean isValid(String input) throws ValidationException {
-        if (input == null || input.length() <4) {
+        if (input == null || input.length() < 4) {
             log.error("No input!");
             throw new ValidationException("No input", new IllegalArgumentException());
         }

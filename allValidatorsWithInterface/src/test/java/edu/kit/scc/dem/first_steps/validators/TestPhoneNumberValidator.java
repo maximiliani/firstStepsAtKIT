@@ -22,7 +22,7 @@ public class TestPhoneNumberValidator {
     private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
 
     @Test
-    void noInput(){
+    void noCountryCodeInput() {
         LogCaptor logCaptor = LogCaptor.forClass(PhoneNumberValidator.class);
         InputStream stdin = System.in;
         String testString = System.getProperty("line.separator");
@@ -31,8 +31,23 @@ public class TestPhoneNumberValidator {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             PhoneNumberValidator validator = new PhoneNumberValidator();
         } catch (ValidatorInterface.ValidationException e) {
-            System.out.println(logCaptor.getErrorLogs());
             assertTrue(logCaptor.getErrorLogs().contains(expectedMessage));
+        } finally {
+            System.setIn(stdin);
+        }
+    }
+
+    @Test
+    void validCountryCodeInput() {
+        LogCaptor logCaptor = LogCaptor.forClass(PhoneNumberValidator.class);
+        InputStream stdin = System.in;
+        String testString = "DE" + System.getProperty("line.separator");
+        String expectedMessage = "Set country code to DE";
+        try {
+            System.setIn(new ByteArrayInputStream(testString.getBytes()));
+            PhoneNumberValidator validator = new PhoneNumberValidator();
+        } catch (ValidatorInterface.ValidationException e) {
+            assertTrue(logCaptor.getDebugLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
         }
@@ -72,15 +87,6 @@ public class TestPhoneNumberValidator {
     }
 
     @Test
-    public void possibleLocalOnly() {
-        try {
-            Assertions.assertFalse(validator.isValid("07216"));
-        } catch (ValidatorInterface.ValidationException e) {
-            assumeNoException(e);
-        }
-    }
-
-    @Test
     public void tooLong() {
         assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid("+49721608333333333333333"));
     }
@@ -106,7 +112,12 @@ public class TestPhoneNumberValidator {
     }
 
     @Test
-    public void noInputInValidate() {
+    public void noInputInVIsValid() {
         assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(null));
+    }
+
+    @Test
+    public void isPossibleLocalOnly() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid("123"));
     }
 }

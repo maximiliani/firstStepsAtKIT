@@ -40,7 +40,7 @@ public class PhoneNumberValidator implements ValidatorInterface {
         System.out.println("Please enter a countrycode (e.g. DE, NL, ...): ");
         try {
             this.countryCode = input.nextLine();
-            if (countryCode.length() <2) throw new ValidationException("No input!", new ValidationException());
+            if (countryCode.length() < 2) throw new ValidationException("No input!", new ValidationException());
             log.debug("Set country code to {}", this.countryCode);
         } catch (Exception e) {
             log.error("No country code provided.");
@@ -58,38 +58,31 @@ public class PhoneNumberValidator implements ValidatorInterface {
      */
     @Override
     public boolean isValid(String input) throws ValidationException {
-        if (input == null || input.length() == 0) {
-            log.error("Invalid input! ");
-            throw new ValidationException("Invalid or no input!", new ValidationException());
+        if (input == null) {
+            log.error("No input! ");
+            throw new ValidationException("No input!", new ValidationException());
         }
         try {
             Phonenumber.PhoneNumber number = util.parseAndKeepRawInput(input, countryCode);
             PhoneNumberUtil.ValidationResult possibleResult = util.isPossibleNumberWithReason(number);
-            switch (possibleResult) {
-                case IS_POSSIBLE:
-                    log.info("The number {} is possible.", input);
-                    System.out.println("This number is possible.");
-                    break;
-                case IS_POSSIBLE_LOCAL_ONLY:
-                    log.warn("The number {} is only possible within a certain region and does not meet all the criteria of an international number.", input);
-                    break;
+            if (possibleResult == PhoneNumberUtil.ValidationResult.IS_POSSIBLE) {
+                log.info("The number {} is possible.", input);
+                System.out.println("This number is possible.");
+            } else if (possibleResult == PhoneNumberUtil.ValidationResult.IS_POSSIBLE_LOCAL_ONLY) {
+                log.warn("The number {} is only possible within a certain region and does not meet all the criteria of an international number.", input);
+                throw new ValidationException("The number is only possible within a certain region. It does not meet all the criteria of an international number.", new ValidationException());
             }
             return util.isValidNumber(number);
         } catch (NumberParseException e) {
-            switch (e.getErrorType()) {
-                case INVALID_COUNTRY_CODE:
-                    log.error("Invalid country code: {}", countryCode);
-                    break;
-                case NOT_A_NUMBER:
-                    log.error("The input {} does not meet the minimum requirements of a phone number!", input);
-                    break;
-                case TOO_SHORT_NSN:
-                case TOO_SHORT_AFTER_IDD:
-                    log.error("The number {} is too short!", input);
-                    break;
-                case TOO_LONG:
-                    log.error("The number {} is too long!", input);
-                    break;
+            NumberParseException.ErrorType errorType = e.getErrorType();
+            if (errorType == NumberParseException.ErrorType.INVALID_COUNTRY_CODE) {
+                log.error("Invalid country code: {}", countryCode);
+            } else if (errorType == NumberParseException.ErrorType.NOT_A_NUMBER) {
+                log.error("The input {} does not meet the minimum requirements of a phone number!", input);
+            } else if (errorType == NumberParseException.ErrorType.TOO_SHORT_NSN || errorType == NumberParseException.ErrorType.TOO_SHORT_AFTER_IDD) {
+                log.error("The number {} is too short!", input);
+            } else if (errorType == NumberParseException.ErrorType.TOO_LONG) {
+                log.error("The number is too long!");
             }
             throw new ValidationException("Invalid number!", e);
         }

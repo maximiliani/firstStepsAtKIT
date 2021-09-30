@@ -52,7 +52,7 @@ public class Main {
             throw new ValidatorInterface.ValidationException("Not able to parse args.", e);
         }
 
-        if (cmd == null || (!cmd.hasOption("i") && !cmd.hasOption("h"))) {
+        if (!cmd.hasOption("i") && !cmd.hasOption("h")) {
             Scanner scannerInput = new Scanner(System.in);
             System.out.println("Hello, there were no/invalid arguments given. Which validator do you want to use?");
             System.out.println("If you want to know something about the arguments use '-h'.");

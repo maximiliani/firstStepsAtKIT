@@ -65,4 +65,19 @@ public class TestMailAddressValidator {
     public void notAnAddress() {
         assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello"));
     }
+
+    @Test
+    public void unreachableDomain() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello@test.example"));
+    }
+
+    @Test
+    public void lengthNotEqual() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello@test.1d"));
+    }
+
+    @Test
+    public void toolong2() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hellohellohellohellohellohellohellohellohellohellohellohelloh@hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.de"));
+    }
 }

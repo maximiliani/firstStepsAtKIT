@@ -3,8 +3,10 @@ package edu.kit.scc.dem.first_steps.validators;
 import edu.kit.scc.dem.first_steps.Main;
 import nl.altindag.log.LogCaptor;
 import org.junit.jupiter.api.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+
 import static org.junit.Assume.assumeNoException;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -12,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestMain {
 
     @Test
-    void validGoogleValidatorType(){
+    void validGoogleValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
-        String testString = "googleValidator"+System.getProperty("line.separator");
+        String testString = "googleValidator" + System.getProperty("line.separator");
         String expectedMessage = "googleValidator input recognized - starting PhoneNumberValidator";
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
@@ -28,10 +30,10 @@ public class TestMain {
     }
 
     @Test
-    void validMailValidatorType(){
+    void validMailValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
-        String testString = "mailValidator"+System.getProperty("line.separator");
+        String testString = "mailValidator" + System.getProperty("line.separator");
         String expectedMessage = "mailValidator input recognized - starting MailAddressValidator";
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
@@ -44,10 +46,10 @@ public class TestMain {
     }
 
     @Test
-    void validDomainValidatorType(){
+    void validDomainValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
-        String testString = "domainValidator"+System.getProperty("line.separator");
+        String testString = "domainValidator" + System.getProperty("line.separator");
         String expectedMessage = "domainValidator input recognized - starting DomainValidator";
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
@@ -60,10 +62,10 @@ public class TestMain {
     }
 
     @Test
-    void validRegexValidatorType(){
+    void validRegexValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
-        String testString = "regexValidator"+System.getProperty("line.separator");
+        String testString = "regexValidator" + System.getProperty("line.separator");
         String expectedMessage = "regexValidator input recognized - starting RegexNumberValidator";
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
@@ -76,10 +78,10 @@ public class TestMain {
     }
 
     @Test
-    void invalidValidatorType(){
+    void invalidValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
-        String testString = "test"+System.getProperty("line.separator");
+        String testString = "test" + System.getProperty("line.separator");
         String expectedMessage = "Invalid user input given!";
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
@@ -92,7 +94,7 @@ public class TestMain {
     }
 
     @Test
-    void noValidatorType(){
+    void noValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
         String testString = System.getProperty("line.separator");
