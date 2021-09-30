@@ -40,10 +40,11 @@ public class PhoneNumberValidator implements ValidatorInterface {
         System.out.println("Please enter a countrycode (e.g. DE, NL, ...): ");
         try {
             this.countryCode = input.nextLine();
+            if (countryCode.length() <2 || countryCode.isBlank()) throw new ValidationException("No input!", new ValidationException());
             log.debug("Set country code to {}", this.countryCode);
         } catch (Exception e) {
             log.error("No country code provided.");
-            throw new ValidationException("No country code provided!", new ValidationException());
+            throw new ValidationException("No country code provided!", e);
         }
     }
 

@@ -1,5 +1,9 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.impl.DomainValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 /**
@@ -9,6 +13,7 @@ import java.util.Scanner;
  */
 public interface ValidatorInterface {
 
+    Logger log = LoggerFactory.getLogger(ValidatorInterface.class);
     /**
      * This method is implemented in every class that implements this interface.
      * It validates the given input and returns either a boolean or a ValidationException.
@@ -27,17 +32,23 @@ public interface ValidatorInterface {
     default void askForInputAndValidate() throws ValidationException {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please enter the text you want to validate: ");
-        String inputMessage;
+        String inputMessage = null;
         try {
             inputMessage = userInput.nextLine();
         } catch (Exception e) {
-            throw new ValidationException("Invalid inputMessage", e);
+            log.error("No or invalid input.");
+            log.debug("Input: {}", inputMessage);
+            throw new ValidationException("No or invalid inputMessage.", e);
         }
         System.out.println(inputMessage);
         if (inputMessage.length() > 1) {
             isValid(inputMessage);
+            log.info("The input {} is valid.", inputMessage);
             System.out.println("Your input is valid!");
-        } else throw new ValidationException();
+        } else {
+            log.error("The input {} is invalid.", inputMessage);
+            throw new ValidationException();
+        }
     }
 
     /**

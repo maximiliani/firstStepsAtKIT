@@ -24,7 +24,12 @@ public class TestDomainValidator {
 
     @Test
     public void nullInput() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(""));
+        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid(null));
+    }
+
+    @Test
+    public void shortInput() {
+        assertThrows(ValidatorInterface.ValidationException.class, () -> validator.isValid("h.d"));
     }
 
     @Test

@@ -1,19 +1,42 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.impl.DomainValidator;
 import edu.kit.scc.dem.first_steps.validators.impl.PhoneNumberValidator;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
+import nl.altindag.log.LogCaptor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import static org.junit.Assert.*;
 import static org.junit.Assume.assumeNoException;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPhoneNumberValidator {
 
     private final PhoneNumberValidator validator = new PhoneNumberValidator("DE");
     private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
+
+    @Test
+    void noInput(){
+        LogCaptor logCaptor = LogCaptor.forClass(PhoneNumberValidator.class);
+        InputStream stdin = System.in;
+        String testString = System.getProperty("line.separator");
+        String expectedMessage = "No country code provided.";
+        try {
+            System.setIn(new ByteArrayInputStream(testString.getBytes()));
+            PhoneNumberValidator validator = new PhoneNumberValidator();
+        } catch (ValidatorInterface.ValidationException e) {
+            System.out.println(logCaptor.getErrorLogs());
+            assertTrue(logCaptor.getErrorLogs().contains(expectedMessage));
+        } finally {
+            System.setIn(stdin);
+        }
+    }
 
     @Test
     public void farTooShort() {
