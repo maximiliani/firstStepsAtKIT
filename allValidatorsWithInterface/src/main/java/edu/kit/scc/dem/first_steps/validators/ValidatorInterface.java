@@ -54,7 +54,8 @@ public interface ValidatorInterface {
     }
 
     /**
-     * This class is a custom exception.
+     * This class is a custom exception. 
+     * Should be located in an extra file and folder. -> edu.kit.scc.dem.first_steps.validators.exceptions
      */
     class ValidationException extends Exception {
 
