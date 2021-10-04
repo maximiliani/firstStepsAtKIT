@@ -4,10 +4,10 @@ import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.lang.System.Logger;
 
 import java.util.Scanner;
+import org.junit.platform.commons.logging.LoggerFactory;
 
 /**
  * This class validates international phone numbers by using a Google library.
@@ -29,6 +29,12 @@ public class PhoneNumberValidator implements ValidatorInterface {
         log.debug("Set country code to {}", countryCode);
         this.countryCode = countryCode;
     }
+    
+//    public String getInput() {
+//      // ask for country code (if not given)
+//      // ask for phone number
+//      return new String();
+//    }
 
     /**
      * This constructor reads the users input for the country code.
