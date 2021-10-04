@@ -31,26 +31,14 @@ public class Main {
      * @throws ValidatorInterface.ValidationException with error message inside
      */
     public static void main(String[] args) throws ValidatorInterface.ValidationException {
-        // To shorten method outsource initialization for options:  Options options = initCommandlineArgs();
-        // What happens if someone call the method with the following args: -m -d -r -i someInput!?
-        // Allow argument for type and and additional input (cmd.getArgList())
-        // in argList is empty ask for given type.
-        // I would cleanup args list:
-        // Usage: Main -t Type (one of ...) -c countrycode (only for type google otherwise an exception
-        // should be thrown) INPUT
-        // If INPUT is not available ask for input.
-        // This simplifies argument parsing.
         Options options = new Options();
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         Option input = new Option("i", "input", true, "String to validate");
         options.addOption(input);
         options.addOption(new Option("c", "countrycode", true, "countrycode for validating international phone numbers"));
-        options.addOption(new Option("m", "mail", false, "use mail address validator"));
-        options.addOption(new Option("d", "domain", false, "use domain validator"));
-        options.addOption(new Option("r", "regex", false, "use regex phone number validator (only for German national phone numbers)"));
-        options.addOption(new Option("g", "google", false, "use google library for international phone number validator"));
         options.addOption(new Option("h", "help", false, "show help"));
+        options.addOption(new Option("t", "type", true, "choose one of these types: domain, mail, regex, google"));
         CommandLine cmd;
 
         try {
@@ -61,7 +49,7 @@ public class Main {
             throw new ValidatorInterface.ValidationException("Not able to parse args.", e);
         }
 
-        if (!cmd.hasOption("i") && !cmd.hasOption("h")) {
+        if (!cmd.hasOption("i") && !cmd.hasOption("h") && !cmd.hasOption("t")) {
             Scanner scannerInput = new Scanner(System.in);
             System.out.println("Hello, there were no/invalid arguments given. Which validator do you want to use?");
             System.out.println("If you want to know something about the arguments use '-h'.");
@@ -110,16 +98,20 @@ public class Main {
                 System.out.println(e.getMessage());
                 throw e;
             }
-        } else if (cmd.hasOption("m")) {
+        } else if (cmd.hasOption("h")) {
+            log.debug("h arg recognized - printing help");
+            formatter.printHelp("Main.java", options);
+            return;
+        } else if (cmd.getOptionValue("t").equals("mail")) {
             log.debug("m arg recognized - starting MailAddressValidator");
             validator = new MailAddressValidator();
-        } else if (cmd.hasOption("r")) {
+        } else if (cmd.getOptionValue("t").equals("regex")) {
             log.debug("r arg recognized - starting RegexNumberValidator");
             validator = new RegexNumberValidator();
-        } else if (cmd.hasOption("d")) {
+        } else if (cmd.getOptionValue("t").equals("domain")) {
             log.debug("d arg recognized - starting DomainValidator");
             validator = new DomainValidator();
-        } else if (cmd.hasOption("g")) {
+        } else if (cmd.getOptionValue("t").equals("google")) {
             log.debug("g arg recognized - starting PhoneNumberValidator");
             if (cmd.hasOption("c")) {
                 log.debug("c arg recognized - using constructor with arg value");
@@ -128,10 +120,6 @@ public class Main {
                 log.debug("c arg NOT recognized - using constructor without arg value");
                 validator = new PhoneNumberValidator();
             }
-        } else if (cmd.hasOption("h")) {
-            log.debug("h arg recognized - printing help");
-            formatter.printHelp("Main.java", options);
-            return;
         }
 
         try {

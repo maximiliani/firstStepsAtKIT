@@ -132,8 +132,32 @@ public class TestMain {
     }
 
     @Test
+    void withHLongArg() {
+        String[] args = {"-help"};
+        try {
+            Main.main(args);
+            assertTrue(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            assumeNoException(e);
+        }
+    }
+
+    @Test
+    void withHLongAndDoubleHyphenArg() {
+        String[] args = {"--help"};
+        try {
+            Main.main(args);
+            assertTrue(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            assumeNoException(e);
+        }
+    }
+
+    @Test
     void rValid() {
-        String[] args = {"-r", "-i", "072160828033"};
+        String[] args = {"-t", "regex", "-i", "072160828033"};
         try {
             Main.main(args);
         } catch (Exception e) {
@@ -143,13 +167,13 @@ public class TestMain {
 
     @Test
     void rInvalid() {
-        String[] args = {"-r", "-i", "07216"};
+        String[] args = {"-t", "regex", "-i", "07216"};
         assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
     }
 
     @Test
     void gValid() {
-        String[] args = {"-g", "-i", "00497216082804", "-c", "DE"};
+        String[] args = {"-t", "google", "-i", "00497216082804", "-c", "DE"};
         try {
             Main.main(args);
         } catch (Exception e) {
@@ -159,19 +183,19 @@ public class TestMain {
 
     @Test
     void gWithoutC() {
-        String[] args = {"-g", "-i", "00497216082804"};
+        String[] args = {"-t", "google", "-i", "00497216082804"};
         assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
     }
 
     @Test
     void gInvalid() {
-        String[] args = {"-g", "-i", "+91", "-c", "DE"};
+        String[] args = {"-t", "google", "-i", "+91", "-c", "DE"};
         assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
     }
 
     @Test
     void mValid() {
-        String[] args = {"-m", "-i", "test@kit.edu"};
+        String[] args = {"-t", "mail", "-i", "test@kit.edu"};
         try {
             Main.main(args);
         } catch (Exception e) {
@@ -181,13 +205,13 @@ public class TestMain {
 
     @Test
     void mInvalid() {
-        String[] args = {"-m", "-i", "test@123.123"};
+        String[] args = {"-t", "mail", "-i", "test@123.123"};
         assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
     }
 
     @Test
     void dValid() {
-        String[] args = {"-d", "-i", "kit.edu"};
+        String[] args = {"-t", "domain", "-i", "kit.edu"};
         try {
             Main.main(args);
         } catch (Exception e) {
@@ -197,7 +221,7 @@ public class TestMain {
 
     @Test
     void dInvalid() {
-        String[] args = {"-d", "-i", "test.test.dem.scc.kit"};
+        String[] args = {"-t", "domain", "-i", "test.test.dem.scc.kit"};
         assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
     }
 }
