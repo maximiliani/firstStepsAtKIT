@@ -21,7 +21,7 @@ import org.apache.commons.cli.*;
 public class Main {
 
     static Logger log = LoggerFactory.getLogger(Main.class);
-    static private ValidatorInterface validator = null;
+    private static ValidatorInterface validator = null;
 
     /**
      * This is the main method.
@@ -55,9 +55,7 @@ public class Main {
 
         try {
             cmd = parser.parse(options, args);
-        } catch (ParseException e) {  // Why no tests with invalid input! 
-            // Testing only valid input makes no sense as the handling of invalid input
-            // is much more important.
+        } catch (ParseException e) {
             log.error("Failed parsing args - printing help");
             formatter.printHelp("Main.java", options);
             throw new ValidatorInterface.ValidationException("Not able to parse args.", e);

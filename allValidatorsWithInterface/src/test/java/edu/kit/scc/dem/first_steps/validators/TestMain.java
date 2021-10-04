@@ -14,6 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestMain {
 
     @Test
+    void newMain(){
+        Main test = new Main();
+    }
+
+    @Test
     void validGoogleValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
@@ -81,7 +86,7 @@ public class TestMain {
     void invalidValidatorType() {
         LogCaptor logCaptor = LogCaptor.forClass(Main.class);
         InputStream stdin = System.in;
-        String testString = "test" + System.getProperty("line.separator");
+        String testString = "t" + System.getProperty("line.separator");
         String expectedMessage = "Invalid user input given!";
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
