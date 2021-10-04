@@ -5,9 +5,10 @@ import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import java.lang.System.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
-import org.junit.platform.commons.logging.LoggerFactory;
 
 /**
  * This class validates international phone numbers by using a Google library.
