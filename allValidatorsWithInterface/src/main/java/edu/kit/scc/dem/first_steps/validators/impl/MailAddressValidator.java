@@ -1,6 +1,7 @@
 package edu.kit.scc.dem.first_steps.validators.impl;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

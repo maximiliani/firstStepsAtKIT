@@ -1,6 +1,7 @@
 package edu.kit.scc.dem.first_steps.validators;
 
 import edu.kit.scc.dem.first_steps.Main;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import nl.altindag.log.LogCaptor;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ public class TestMain {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             Main.main(new String[]{});
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getDebugLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -43,7 +44,7 @@ public class TestMain {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             Main.main(new String[]{});
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getDebugLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -59,7 +60,7 @@ public class TestMain {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             Main.main(new String[]{});
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getDebugLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -75,7 +76,7 @@ public class TestMain {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             Main.main(new String[]{});
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getDebugLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -91,7 +92,7 @@ public class TestMain {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             Main.main(new String[]{});
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getErrorLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -107,7 +108,7 @@ public class TestMain {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             Main.main(new String[]{});
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getErrorLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -116,7 +117,7 @@ public class TestMain {
 
     @Test
     void withoutArgsAndInput() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(new String[]{}));
+        assertThrows(ValidationException.class, () -> Main.main(new String[]{}));
     }
 
     @Test
@@ -168,7 +169,7 @@ public class TestMain {
     @Test
     void rInvalid() {
         String[] args = {"-t", "regex", "-i", "07216"};
-        assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
+        assertThrows(ValidationException.class, () -> Main.main(args));
     }
 
     @Test
@@ -184,13 +185,13 @@ public class TestMain {
     @Test
     void gWithoutC() {
         String[] args = {"-t", "google", "-i", "00497216082804"};
-        assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
+        assertThrows(ValidationException.class, () -> Main.main(args));
     }
 
     @Test
     void gInvalid() {
         String[] args = {"-t", "google", "-i", "+91", "-c", "DE"};
-        assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
+        assertThrows(ValidationException.class, () -> Main.main(args));
     }
 
     @Test
@@ -206,7 +207,7 @@ public class TestMain {
     @Test
     void mInvalid() {
         String[] args = {"-t", "mail", "-i", "test@123.123"};
-        assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
+        assertThrows(ValidationException.class, () -> Main.main(args));
     }
 
     @Test
@@ -222,6 +223,17 @@ public class TestMain {
     @Test
     void dInvalid() {
         String[] args = {"-t", "domain", "-i", "test.test.dem.scc.kit"};
-        assertThrows(ValidatorInterface.ValidationException.class, () -> Main.main(args));
+        assertThrows(ValidationException.class, () -> Main.main(args));
+    }
+
+    @Test
+    void missingT() {
+        String[] args = {"-i", "test.test.dem.scc.kit"};
+        assertThrows(ValidationException.class, () -> Main.main(args));
+    }
+    @Test
+    void missingIH() {
+        String[] args = {"-t", "domain"};
+        assertThrows(ValidationException.class, () -> Main.main(args));
     }
 }

@@ -1,6 +1,7 @@
 package edu.kit.scc.dem.first_steps;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import edu.kit.scc.dem.first_steps.validators.impl.DomainValidator;
 import edu.kit.scc.dem.first_steps.validators.impl.MailAddressValidator;
 import edu.kit.scc.dem.first_steps.validators.impl.PhoneNumberValidator;
@@ -28,9 +29,9 @@ public class Main {
      * It reads the user input either form args or from console and validates them.
      *
      * @param args args to parse and validate
-     * @throws ValidatorInterface.ValidationException with error message inside
+     * @throws ValidationException with error message inside
      */
-    public static void main(String[] args) throws ValidatorInterface.ValidationException {
+    public static void main(String[] args) throws ValidationException {
         Options options = new Options();
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
@@ -46,10 +47,10 @@ public class Main {
         } catch (ParseException e) {
             log.error("Failed parsing args - printing help");
             formatter.printHelp("Main.java", options);
-            throw new ValidatorInterface.ValidationException("Not able to parse args.", e);
+            throw new ValidationException("Not able to parse args.", e);
         }
 
-        if (!cmd.hasOption("i") && !cmd.hasOption("h") && !cmd.hasOption("t")) {
+        if ((!cmd.hasOption("i") || !cmd.hasOption("t")) && !cmd.hasOption("h")) {
             Scanner scannerInput = new Scanner(System.in);
             System.out.println("Hello, there were no/invalid arguments given. Which validator do you want to use?");
             System.out.println("If you want to know something about the arguments use '-h'.");
@@ -63,7 +64,7 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("No input given!");
                 log.error("No user input given!");
-                throw new ValidatorInterface.ValidationException("No input given!", e);
+                throw new ValidationException("No input given!", e);
             }
             switch (type) {
                 case "regexValidator":
@@ -87,13 +88,13 @@ public class Main {
                     System.out.println();
                     formatter.printHelp("Main.java", options);
                     log.error("Invalid user input given!");
-                    throw new ValidatorInterface.ValidationException("Invalid input given!", new ValidatorInterface.ValidationException());
+                    throw new ValidationException("Invalid input given!", new ValidationException());
             }
             try {
                 validator.askForInputAndValidate();
                 log.debug("Finished validation process without errors!");
                 return;
-            } catch (ValidatorInterface.ValidationException e) {
+            } catch (ValidationException e) {
                 log.error("Failed validation because of: {}", e.getMessage());
                 System.out.println(e.getMessage());
                 throw e;
@@ -126,7 +127,7 @@ public class Main {
             validator.isValid(cmd.getOptionValue("i"));
             log.info("The input {} is valid", cmd.getOptionValue("i"));
             System.out.println("Valid input!");
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             log.error("The input {} is invalid because of this reason: {}", input, e.getMessage());
             System.out.println("Invalid Input!");
             System.out.println("REASON: " + e.getMessage());
