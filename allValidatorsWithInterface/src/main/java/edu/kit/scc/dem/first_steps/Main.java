@@ -18,7 +18,7 @@ import org.apache.commons.cli.*;
  *
  * @author maximilianiKIT
  */
-public class Main {
+public class Main { //Code coverage: add test for new Main() to cover this line.
     // See code conventions for static final properties. Use upper CASE!
     static final Logger log = LoggerFactory.getLogger(Main.class);
     private static ValidatorInterface validator = null;
@@ -46,7 +46,9 @@ public class Main {
 
         try {
             cmd = parser.parse(options, args);
-        } catch (ParseException e) {
+        } catch (ParseException e) {  // Why no tests with invalid input! 
+          // Testing only valid input makes no sense as the handling of invalid input
+          // is much more important.
             log.error("Failed parsing args - printing help");
             formatter.printHelp("Main.java", options);
             throw new ValidatorInterface.ValidationException("Not able to parse args.", e);
