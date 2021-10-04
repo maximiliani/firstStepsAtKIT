@@ -25,6 +25,20 @@ public interface ValidatorInterface {
      */
     boolean isValid(String input) throws ValidationException;
 
+//    // This method should be overwritten.
+//    default String getQueryMessage() {
+//      return "Please enter the text you want to validate: ";
+//    }
+//    
+//    default String getInput() {
+//      System.out.println(getQueryMessage());
+//      // code parsing input
+//    }
+//    
+//    default void askForInputAndValidate() throws ... {
+//      String input = getInput();
+//      isValid(input);
+//    }
     /**
      * This method asks the user via command line for input and validates it with the isValid() method.
      *
@@ -45,7 +59,7 @@ public interface ValidatorInterface {
         System.out.println(inputMessage);
         if (inputMessage.length() > 1) {
             isValid(inputMessage);
-            log.info("The input {} is valid.", inputMessage);
+            log.info("The input {} is valid.", inputMessage);  // error handling should be done in implementations
             System.out.println("Your input is valid!");
         } else {
             log.error("The input {} is invalid.", inputMessage);
