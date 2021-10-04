@@ -31,6 +31,15 @@ public class Main { //Code coverage: add test for new Main() to cover this line.
      * @throws ValidatorInterface.ValidationException with error message inside
      */
     public static void main(String[] args) throws ValidatorInterface.ValidationException {
+      // To shorten method outsource initialization for options:  Options options = initCommandlineArgs();
+      // What happens if someone call the method with the following args: -m -d -r -i someInput!?
+      // Allow argument for type and and additional input (cmd.getArgList())
+      // in argList is empty ask for given type.
+      // I would cleanup args list: 
+      // Usage: Main -t Type (one of ...) -c countrycode (only for type google otherwise an exception
+      // should be thrown) INPUT 
+      // If INPUT is not available ask for input.
+      // This simplifies argument parsing. 
         Options options = new Options();
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
