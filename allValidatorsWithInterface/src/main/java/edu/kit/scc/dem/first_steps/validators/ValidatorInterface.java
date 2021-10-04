@@ -36,6 +36,7 @@ public interface ValidatorInterface {
         String inputMessage = null;
         try {
             inputMessage = userInput.nextLine();
+            userInput.close();
         } catch (Exception e) {
             log.error("No or invalid input.");
             log.debug("Input: {}", inputMessage);
