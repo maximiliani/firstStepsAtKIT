@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class RegexNumberValidator implements ValidatorInterface {
 
-    final Logger log = LoggerFactory.getLogger(RegexNumberValidator.class);
+    Logger log = LoggerFactory.getLogger(RegexNumberValidator.class);
 
     /**
      * This method validates German phone numbers and throws an IllegalArgumentException if the number isn't valid.

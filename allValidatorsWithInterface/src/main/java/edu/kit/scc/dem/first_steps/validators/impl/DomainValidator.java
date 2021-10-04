@@ -13,7 +13,7 @@ import java.net.InetAddress;
  */
 public class DomainValidator implements ValidatorInterface {
 
-    final Logger log = LoggerFactory.getLogger(DomainValidator.class);
+    Logger log = LoggerFactory.getLogger(DomainValidator.class);
 
     /**
      * This method checks if A or AAAA records are available for the domain.

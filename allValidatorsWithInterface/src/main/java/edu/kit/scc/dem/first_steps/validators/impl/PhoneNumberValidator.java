@@ -4,10 +4,8 @@ import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
-import java.lang.System.Logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Scanner;
 
 /**
@@ -18,8 +16,8 @@ import java.util.Scanner;
 public class PhoneNumberValidator implements ValidatorInterface {
 
     final Logger log = LoggerFactory.getLogger(PhoneNumberValidator.class);
-    private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
-    private final String countryCode;
+    private PhoneNumberUtil util = PhoneNumberUtil.getInstance();
+    private String countryCode;
 
     /**
      * This constructor gets the country code by parameter.

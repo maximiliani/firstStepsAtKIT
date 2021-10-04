@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
  */
 public class MailAddressValidator implements ValidatorInterface {
 
-    final Logger log = LoggerFactory.getLogger(MailAddressValidator.class);
-    private static final DomainValidator domainValidator = new DomainValidator();
+    Logger log = LoggerFactory.getLogger(MailAddressValidator.class);
+    private DomainValidator domainValidator = new DomainValidator();
 
     /**
      * This method validates e-mail addresses and throws an ValidationException if the address isn't valid.
