@@ -40,6 +40,7 @@ public class PhoneNumberValidator implements ValidatorInterface {
         System.out.println("Please enter a countrycode (e.g. DE, NL, ...): ");
         try {
             this.countryCode = input.nextLine();
+            input.close();
             if (countryCode.length() < 2) throw new ValidationException("No input!", new ValidationException());
             log.debug("Set country code to {}", this.countryCode);
         } catch (Exception e) {

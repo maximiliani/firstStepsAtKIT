@@ -61,6 +61,7 @@ public class Main {
             String type;
             try {
                 type = scannerInput.nextLine();
+                scannerInput.close();
                 log.debug("User input recognized: {}", type);
             } catch (Exception e) {
                 System.out.println("No input given!");
