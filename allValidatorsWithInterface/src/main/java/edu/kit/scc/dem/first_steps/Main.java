@@ -19,7 +19,7 @@ import org.apache.commons.cli.*;
  * @author maximilianiKIT
  */
 public class Main {
-
+    // See code conventions for static final properties. Use upper CASE!
     static final Logger log = LoggerFactory.getLogger(Main.class);
     private static ValidatorInterface validator = null;
 
