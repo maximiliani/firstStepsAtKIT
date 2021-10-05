@@ -1,6 +1,7 @@
 package edu.kit.scc.dem.first_steps.validators.impl;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +14,7 @@ import java.net.InetAddress;
  */
 public class DomainValidator implements ValidatorInterface {
 
-    final Logger log = LoggerFactory.getLogger(DomainValidator.class);
+    Logger log = LoggerFactory.getLogger(DomainValidator.class);
 
     /**
      * This method checks if A or AAAA records are available for the domain.
@@ -37,5 +38,10 @@ public class DomainValidator implements ValidatorInterface {
             log.error("No A or AAAA record available.");
             throw new ValidationException("No A or AAAA record available", e);
         }
+    }
+
+    @Override
+    public void printQueryMessage() {
+        System.out.println("Please enter the domain you want to validate: ");
     }
 }

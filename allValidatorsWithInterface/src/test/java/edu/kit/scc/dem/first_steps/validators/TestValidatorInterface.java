@@ -1,5 +1,6 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import edu.kit.scc.dem.first_steps.validators.impl.DomainValidator;
 import nl.altindag.log.LogCaptor;
 import org.junit.jupiter.api.Test;
@@ -10,12 +11,12 @@ import java.io.InputStream;
 import static org.junit.Assume.assumeNoException;
 import static org.junit.jupiter.api.Assertions.*;
 
-class testValidatorInterface {
+class TestValidatorInterface {
 
     @Test
     void askForInputAndValidate() {
         ValidatorInterface validatorInterface = new DomainValidator();
-        assertThrows(ValidatorInterface.ValidationException.class, validatorInterface::askForInputAndValidate);
+        assertThrows(ValidationException.class, validatorInterface::askForInputAndValidate);
     }
 
     @Test
@@ -26,7 +27,7 @@ class testValidatorInterface {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             validatorInterface.askForInputAndValidate();
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assumeNoException(e);
         } finally {
             System.setIn(stdin);
@@ -43,7 +44,7 @@ class testValidatorInterface {
         try {
             System.setIn(new ByteArrayInputStream(testString.getBytes()));
             validatorInterface.askForInputAndValidate();
-        } catch (ValidatorInterface.ValidationException e) {
+        } catch (ValidationException e) {
             assertTrue(logCaptor.getErrorLogs().contains(expectedMessage));
         } finally {
             System.setIn(stdin);
@@ -52,15 +53,26 @@ class testValidatorInterface {
 
     @Test
     void ValidatorExceptionWithoutMessage() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> {
-            throw new ValidatorInterface.ValidationException();
+        assertThrows(ValidationException.class, () -> {
+            throw new ValidationException();
         });
     }
 
     @Test
     void ValidatorExceptionWithMessage() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> {
-            throw new ValidatorInterface.ValidationException("test", new Exception());
+        assertThrows(ValidationException.class, () -> {
+            throw new ValidationException("test", new Exception());
         });
+    }
+
+    @Test
+    void testQueryMessage(){
+        ValidatorInterface validator = new ValidatorInterface() {
+            @Override
+            public boolean isValid(String input) throws ValidationException {
+                return false;
+            }
+        };
+        validator.printQueryMessage();
     }
 }

@@ -1,6 +1,7 @@
 package edu.kit.scc.dem.first_steps.validators.impl;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,8 +15,8 @@ import java.util.regex.Pattern;
  */
 public class MailAddressValidator implements ValidatorInterface {
 
-    final Logger log = LoggerFactory.getLogger(MailAddressValidator.class);
-    private static final DomainValidator domainValidator = new DomainValidator();
+    Logger log = LoggerFactory.getLogger(MailAddressValidator.class);
+    private DomainValidator domainValidator = new DomainValidator();
 
     /**
      * This method validates e-mail addresses and throws an ValidationException if the address isn't valid.
@@ -52,5 +53,10 @@ public class MailAddressValidator implements ValidatorInterface {
         }
         log.error("The mail address {} is invalid.", input);
         throw new ValidationException("Invalid mail address", new ValidationException());
+    }
+
+    @Override
+    public void printQueryMessage() {
+        System.out.println("Please enter the mail address you want to validate: ");
     }
 }

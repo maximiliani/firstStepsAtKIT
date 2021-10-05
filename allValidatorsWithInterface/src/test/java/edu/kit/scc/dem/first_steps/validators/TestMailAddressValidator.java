@@ -1,5 +1,6 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import edu.kit.scc.dem.first_steps.validators.impl.MailAddressValidator;
 import org.junit.jupiter.api.Test;
 
@@ -28,56 +29,56 @@ public class TestMailAddressValidator {
 
     @Test
     public void tooLong() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test.test.test.test@fhgakhjsdfgkajhdgfkajhgdfkjahgdfkjahgdfkjahgdfkjahgdfkjahdsgfkjahdgfkjahgdsfkjhagsdfkjahsgdfjhagdsfjhgasdjhkfgasdhjgfajsdgfjasgdfjasgdfjagsdfjhgadsfjhgadsjfkhgash.example.jalsjkfhaldjkhfalkjdhflakjdshflkjahdflkjhadlkjfhaljdshflajshdflkahdsflkjhdaljfhasljdkfhlaksjdhfkjalsdhfljkh.de"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("test.test.test.test@fhgakhjsdfgkajhdgfkajhgdfkjahgdfkjahgdfkjahgdfkjahgdfkjahdsgfkjahdgfkjahgdsfkjhagsdfkjahsgdfjhagdsfjhgasdjhkfgasdhjgfajsdgfjasgdfjasgdfjagsdfjhgadsfjhgadsjfkhgash.example.jalsjkfhaldjkhfalkjdhflakjdshflkjahdflkjhadlkjfhaljdshflajshdflkahdsflkjhdaljfhasljdkfhlaksjdhfkjalsdhfljkh.de"));
     }
 
     @Test
     public void invalid() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(""));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid(""));
     }
 
     @Test
     public void invalid2() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(null));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid(null));
     }
 
     @Test
     public void invalidDot() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid(".maximilian@test.example"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid(".maximilian@test.example"));
     }
 
     @Test
     public void invalidNumbericTLD() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test@test.123"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("test@test.123"));
     }
 
     @Test
     public void invalidHyphens() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("test@test.-test-"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("test@test.-test-"));
     }
 
     @Test
     public void tooShort() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("t@es.t"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("t@es.t"));
     }
 
     @Test
     public void notAnAddress() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("hello"));
     }
 
     @Test
     public void unreachableDomain() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello@test.example"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("hello@test.example"));
     }
 
     @Test
     public void lengthNotEqual() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hello@test.1d"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("hello@test.1d"));
     }
 
     @Test
     public void toolong2() {
-        assertThrows(ValidatorInterface.ValidationException.class, () -> mailAddressValidator.isValid("hellohellohellohellohellohellohellohellohellohellohellohelloh@hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.de"));
+        assertThrows(ValidationException.class, () -> mailAddressValidator.isValid("hellohellohellohellohellohellohellohellohellohellohellohelloh@hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.hellohellohellohellohellohellohellohellohellohellohellohelloh.de"));
     }
 }

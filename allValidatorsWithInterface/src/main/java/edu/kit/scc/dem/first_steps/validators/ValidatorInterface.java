@@ -1,5 +1,6 @@
 package edu.kit.scc.dem.first_steps.validators;
 
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import edu.kit.scc.dem.first_steps.validators.impl.DomainValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,13 +27,20 @@ public interface ValidatorInterface {
     boolean isValid(String input) throws ValidationException;
 
     /**
+     * This method prints custom query messages and should be overwritten in every validator.
+     */
+    default void printQueryMessage() {
+      System.out.println("Please enter the text you want to validate: ");
+    }
+
+    /**
      * This method asks the user via command line for input and validates it with the isValid() method.
      *
      * @throws ValidationException with a description if an error occurs or the input is invalid.
      */
     default void askForInputAndValidate() throws ValidationException {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Please enter the text you want to validate: ");
+        printQueryMessage();
         String inputMessage = null;
         try {
             inputMessage = userInput.nextLine();
@@ -45,34 +53,11 @@ public interface ValidatorInterface {
         System.out.println(inputMessage);
         if (inputMessage.length() > 1) {
             isValid(inputMessage);
-            log.info("The input {} is valid.", inputMessage);
+            log.info("The input {} is valid.", inputMessage);  // error handling should be done in implementations
             System.out.println("Your input is valid!");
         } else {
             log.error("The input {} is invalid.", inputMessage);
             throw new ValidationException();
-        }
-    }
-
-    /**
-     * This class is a custom exception.
-     */
-    class ValidationException extends Exception {
-
-        /**
-         * This constructor expects an errorMessage and an Throwable for more information.
-         *
-         * @param errorMessage is a description about what happened.
-         * @param err          is a Throwable from former errors like IllegalArgumentExceptions, which are not handled by the caller class.
-         */
-        public ValidationException(String errorMessage, Throwable err) {
-            super(errorMessage, err);
-        }
-
-        /**
-         * This is a empty constructor with no additional information.
-         */
-        public ValidationException() {
-            super();
         }
     }
 }

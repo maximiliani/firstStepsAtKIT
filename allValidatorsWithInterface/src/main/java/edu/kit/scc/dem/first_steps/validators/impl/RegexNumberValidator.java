@@ -1,6 +1,7 @@
 package edu.kit.scc.dem.first_steps.validators.impl;
 
 import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +15,7 @@ import java.util.regex.Pattern;
  */
 public class RegexNumberValidator implements ValidatorInterface {
 
-    final Logger log = LoggerFactory.getLogger(RegexNumberValidator.class);
+    Logger log = LoggerFactory.getLogger(RegexNumberValidator.class);
 
     /**
      * This method validates German phone numbers and throws an IllegalArgumentException if the number isn't valid.
@@ -55,6 +56,10 @@ public class RegexNumberValidator implements ValidatorInterface {
         }
         log.error("The number {} is invalid!", input);
         throw new ValidationException("Invalid number!", new ValidationException());
+    }
+
+    public void printQueryMessage() {
+        System.out.println("Please enter a german national phone number (without any spaces and special characters): ");
     }
 
 }

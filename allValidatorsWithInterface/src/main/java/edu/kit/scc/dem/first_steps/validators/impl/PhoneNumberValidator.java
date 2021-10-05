@@ -4,9 +4,9 @@ import edu.kit.scc.dem.first_steps.validators.ValidatorInterface;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
+import edu.kit.scc.dem.first_steps.validators.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Scanner;
 
 /**
@@ -17,8 +17,8 @@ import java.util.Scanner;
 public class PhoneNumberValidator implements ValidatorInterface {
 
     final Logger log = LoggerFactory.getLogger(PhoneNumberValidator.class);
-    private static final PhoneNumberUtil util = PhoneNumberUtil.getInstance();
-    private final String countryCode;
+    private PhoneNumberUtil util = PhoneNumberUtil.getInstance();
+    private String countryCode;
 
     /**
      * This constructor gets the country code by parameter.
@@ -87,5 +87,10 @@ public class PhoneNumberValidator implements ValidatorInterface {
             }
             throw new ValidationException("Invalid number!", e);
         }
+    }
+
+    @Override
+    public void printQueryMessage() {
+        System.out.println("Please enter a phone number in an international format (starting with + or another prefix, which is valid in the selected country): ");
     }
 }
