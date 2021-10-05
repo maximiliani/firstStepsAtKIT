@@ -121,4 +121,10 @@ public class TestPhoneNumberValidator {
     public void isPossibleLocalOnly() {
         assertThrows(ValidationException.class, () -> validator.isValid("123"));
     }
+
+    @Test
+    void testQueryMessage(){
+        ValidatorInterface validator = new PhoneNumberValidator("DE");
+        validator.printQueryMessage();
+    }
 }

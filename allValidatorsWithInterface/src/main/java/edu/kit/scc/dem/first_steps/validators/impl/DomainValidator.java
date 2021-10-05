@@ -39,4 +39,9 @@ public class DomainValidator implements ValidatorInterface {
             throw new ValidationException("No A or AAAA record available", e);
         }
     }
+
+    @Override
+    public void printQueryMessage() {
+        System.out.println("Please enter the domain you want to validate: ");
+    }
 }

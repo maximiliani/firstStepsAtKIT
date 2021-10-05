@@ -54,4 +54,9 @@ public class MailAddressValidator implements ValidatorInterface {
         log.error("The mail address {} is invalid.", input);
         throw new ValidationException("Invalid mail address", new ValidationException());
     }
+
+    @Override
+    public void printQueryMessage() {
+        System.out.println("Please enter the mail address you want to validate: ");
+    }
 }

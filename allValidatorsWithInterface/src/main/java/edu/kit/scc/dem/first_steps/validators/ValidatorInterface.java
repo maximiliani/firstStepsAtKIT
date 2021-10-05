@@ -26,20 +26,13 @@ public interface ValidatorInterface {
      */
     boolean isValid(String input) throws ValidationException;
 
-//    // This method should be overwritten.
-//    default String getQueryMessage() {
-//      return "Please enter the text you want to validate: ";
-//    }
-//    
-//    default String getInput() {
-//      System.out.println(getQueryMessage());
-//      // code parsing input
-//    }
-//    
-//    default void askForInputAndValidate() throws ... {
-//      String input = getInput();
-//      isValid(input);
-//    }
+    /**
+     * This method prints custom query messages and should be overwritten in every validator.
+     */
+    default void printQueryMessage() {
+      System.out.println("Please enter the text you want to validate: ");
+    }
+
     /**
      * This method asks the user via command line for input and validates it with the isValid() method.
      *
@@ -47,7 +40,7 @@ public interface ValidatorInterface {
      */
     default void askForInputAndValidate() throws ValidationException {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Please enter the text you want to validate: ");
+        printQueryMessage();
         String inputMessage = null;
         try {
             inputMessage = userInput.nextLine();

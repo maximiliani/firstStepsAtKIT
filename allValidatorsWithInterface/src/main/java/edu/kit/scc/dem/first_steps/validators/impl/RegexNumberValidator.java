@@ -58,4 +58,8 @@ public class RegexNumberValidator implements ValidatorInterface {
         throw new ValidationException("Invalid number!", new ValidationException());
     }
 
+    public void printQueryMessage() {
+        System.out.println("Please enter a german national phone number (without any spaces and special characters): ");
+    }
+
 }

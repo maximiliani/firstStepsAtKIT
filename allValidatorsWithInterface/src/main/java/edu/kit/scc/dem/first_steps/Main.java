@@ -104,16 +104,16 @@ public class Main {
             formatter.printHelp("Main.java", options);
             return;
         } else if (cmd.getOptionValue("t").equals("mail")) {
-            log.debug("m arg recognized - starting MailAddressValidator");
+            log.debug("mail arg recognized - starting MailAddressValidator");
             validator = new MailAddressValidator();
         } else if (cmd.getOptionValue("t").equals("regex")) {
-            log.debug("r arg recognized - starting RegexNumberValidator");
+            log.debug("regex arg recognized - starting RegexNumberValidator");
             validator = new RegexNumberValidator();
         } else if (cmd.getOptionValue("t").equals("domain")) {
-            log.debug("d arg recognized - starting DomainValidator");
+            log.debug("domain arg recognized - starting DomainValidator");
             validator = new DomainValidator();
         } else if (cmd.getOptionValue("t").equals("google")) {
-            log.debug("g arg recognized - starting PhoneNumberValidator");
+            log.debug("google arg recognized - starting PhoneNumberValidator");
             if (cmd.hasOption("c")) {
                 log.debug("c arg recognized - using constructor with arg value");
                 validator = new PhoneNumberValidator(cmd.getOptionValue("c"));

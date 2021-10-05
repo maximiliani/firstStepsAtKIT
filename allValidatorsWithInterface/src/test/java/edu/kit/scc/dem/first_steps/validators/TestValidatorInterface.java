@@ -11,7 +11,7 @@ import java.io.InputStream;
 import static org.junit.Assume.assumeNoException;
 import static org.junit.jupiter.api.Assertions.*;
 
-class testValidatorInterface {
+class TestValidatorInterface {
 
     @Test
     void askForInputAndValidate() {
@@ -63,5 +63,16 @@ class testValidatorInterface {
         assertThrows(ValidationException.class, () -> {
             throw new ValidationException("test", new Exception());
         });
+    }
+
+    @Test
+    void testQueryMessage(){
+        ValidatorInterface validator = new ValidatorInterface() {
+            @Override
+            public boolean isValid(String input) throws ValidationException {
+                return false;
+            }
+        };
+        validator.printQueryMessage();
     }
 }

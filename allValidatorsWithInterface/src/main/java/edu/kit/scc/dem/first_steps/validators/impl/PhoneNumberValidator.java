@@ -29,12 +29,6 @@ public class PhoneNumberValidator implements ValidatorInterface {
         log.debug("Set country code to {}", countryCode);
         this.countryCode = countryCode;
     }
-    
-//    public String getInput() {
-//      // ask for country code (if not given)
-//      // ask for phone number
-//      return new String();
-//    }
 
     /**
      * This constructor reads the users input for the country code.
@@ -93,5 +87,10 @@ public class PhoneNumberValidator implements ValidatorInterface {
             }
             throw new ValidationException("Invalid number!", e);
         }
+    }
+
+    @Override
+    public void printQueryMessage() {
+        System.out.println("Please enter a phone number in an international format (starting with + or another prefix, which is valid in the selected country): ");
     }
 }
